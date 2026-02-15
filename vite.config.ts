@@ -80,8 +80,20 @@ export default defineConfig({
   server: {
     port: 5173,
     host: '0.0.0.0',
-    // Open the correct entry HTML to avoid 404 on start
-    open: '/HelloWord/index.html'
+    watch: {
+      usePolling: true,
+      interval: 1000,
+      ignored: [
+        '**/node_modules/**',
+        '**/dist/**',
+        '**/src-tauri/**',
+        '**/android/**',
+        '**/ios/**',
+        '**/.git/**',
+        '**/Docs/**',
+        '**/assets/liturgical-data/**',
+      ],
+    },
   },
   define: {
     'process.env': {},
