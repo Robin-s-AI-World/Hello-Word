@@ -4,91 +4,142 @@
     "codename": "Hello, Word",
     "version": "1.0.0",
     "author": "Robin L. M. Cheung, MBA",
-    "generated": "2026-02-07",
-    "lastUpdated": "2026-02-07",
+    "generated": "2026-02-16",
+    "lastUpdated": "2026-02-16",
     "description": "Liturgical application for traditional Latin Catholic texts and prayers (1962 Missal)"
   },
-  "entry_points": {
-    "web_vite": "index.html",
-    "web_main": "HelloWord/src/platforms/web/main.tsx",
-    "react_native": "HelloWord/index.js",
-    "react_native_web": "HelloWord/index.web.js",
-    "tauri_desktop": "src-tauri/src/main.rs",
-    "liturgical_api": "liturgical-api/server.js"
+  "entryPoints": {
+    "webVite": {
+      "file": "index.html",
+      "bundler": "vite",
+      "devPort": 5173
+    },
+    "reactNative": {
+      "native": "HelloWord/index.js",
+      "web": "HelloWord/index.web.js"
+    },
+    "tauri": {
+      "main": "src-tauri/src/main.rs",
+      "lib": "src-tauri/src/lib.rs",
+      "version": "2.10.0"
+    },
+    "api": {
+      "file": "liturgical-api/server.js",
+      "port": 3000,
+      "framework": "express"
+    },
+    "tests": {
+      "directory": "HelloWord/__tests__",
+      "framework": "jest"
+    }
   },
-  "core_modules": {
-    "services": {
-      "CalendarService": {
-        "path": "src/core/services/CalendarService.ts",
-        "purpose": "Liturgical calendar calculations (Easter, seasons, moveable feasts)"
+  "coreModules": {
+    "services": [
+      {
+        "name": "CalendarService",
+        "file": "src/core/services/CalendarService.ts",
+        "purpose": "Kalendar parsing, Divinum Officium GitHub fetches"
       },
-      "DirectoriumService": {
-        "path": "src/core/services/DirectoriumService.ts",
+      {
+        "name": "DirectoriumService",
+        "file": "src/core/services/DirectoriumService.ts",
         "purpose": "Transfer rules and temporal assignments"
       },
-      "LiturgicalEngineService": {
-        "path": "src/core/services/LiturgicalEngineService.ts",
-        "purpose": "Precedence and rank logic for feast/feria resolution"
+      {
+        "name": "LiturgicalEngineService",
+        "file": "src/core/services/LiturgicalEngineService.ts",
+        "purpose": "Precedence/rank logic for feast/feria resolution"
       },
-      "TextFileParserService": {
-        "path": "src/core/services/TextFileParserService.ts",
-        "purpose": "Parse Divinum Officium text files"
+      {
+        "name": "LiturgicalDatabaseImporter",
+        "file": "src/core/services/LiturgicalDatabaseImporter.ts",
+        "purpose": "Import Divinum Officium database"
       },
-      "TextParsingService": {
-        "path": "src/core/services/TextParsingService.ts",
-        "purpose": "Text parsing utilities"
+      {
+        "name": "TextFileParserService",
+        "file": "src/core/services/TextFileParserService.ts",
+        "purpose": "Parse DO-format text files"
       },
-      "dataManager": {
-        "path": "src/core/services/dataManager.ts",
-        "purpose": "Data access layer"
+      {
+        "name": "TextParsingService",
+        "file": "src/core/services/TextParsingService.ts",
+        "purpose": "Structure liturgical text components"
       },
-      "textService": {
-        "path": "src/core/services/textService.ts",
-        "purpose": "Liturgical text management"
+      {
+        "name": "dataManager",
+        "file": "src/core/services/dataManager.ts",
+        "purpose": "Data access layer, storage coordination"
+      },
+      {
+        "name": "textService",
+        "file": "src/core/services/textService.ts",
+        "purpose": "Liturgical text management and lookup"
       }
-    },
+    ],
     "types": {
-      "liturgical": {
-        "path": "src/core/types/liturgical.ts",
-        "exports": ["LiturgicalSeason", "BilingualText", "LiturgicalDay", "VoiceNote", "LiturgicalRank"]
-      },
-      "services": {
-        "path": "src/core/types/services.ts",
-        "exports": ["Service interfaces"]
-      }
+      "file": "src/core/types/liturgical.ts",
+      "exports": [
+        "LiturgicalSeason",
+        "BilingualText",
+        "LiturgicalDay",
+        "VoiceNote",
+        "JournalEntry",
+        "SaintInfo",
+        "MartyrologicalEntry",
+        "ParishInfo",
+        "ParishEvent",
+        "Newsletter",
+        "CachedLiturgicalData"
+      ]
     },
     "utils": {
       "DateUtils": {
-        "path": "src/core/utils/DateUtils.ts",
-        "purpose": "Date utility functions"
+        "file": "src/core/utils/DateUtils.ts",
+        "purpose": "Date/liturgical week calculations"
       }
-    },
-    "components": [
-      { "name": "LiturgicalApp", "path": "src/components/LiturgicalApp.tsx" },
-      { "name": "CalendarDashboard", "path": "src/components/CalendarDashboard.tsx" },
-      { "name": "LiturgicalCalendar", "path": "src/components/LiturgicalCalendar.tsx" },
-      { "name": "MassTexts", "path": "src/components/MassTexts.tsx" },
-      { "name": "SaintsInfo", "path": "src/components/SaintsInfo.tsx" },
-      { "name": "ParishDashboard", "path": "src/components/ParishDashboard.tsx" },
-      { "name": "Journal", "path": "src/components/Journal.tsx" }
+    }
+  },
+  "components": {
+    "src": [
+      "LiturgicalApp.tsx",
+      "DatabaseImportProgress.tsx",
+      "CalendarDashboard.tsx",
+      "LiturgicalCalendar.tsx",
+      "MassTexts.tsx",
+      "SaintsInfo.tsx",
+      "ParishDashboard.tsx",
+      "Journal.tsx"
     ],
-    "rn_components": [
-      { "name": "AppBar", "path": "HelloWord/src/core/components/AppBar.tsx", "purpose": "React Native app bar" },
-      { "name": "BottomNav", "path": "HelloWord/src/core/components/BottomNav.tsx", "purpose": "React Native bottom navigation" },
-      { "name": "Card", "path": "HelloWord/src/core/components/Card.tsx", "purpose": "React Native card component", "status": "untracked" }
+    "helloWord": [
+      "AppBar.tsx",
+      "BottomNav.tsx",
+      "Card.tsx"
     ],
-    "platforms": {
-      "factory": "src/platforms/storageFactory.ts",
-      "web": ["src/platforms/web/StorageService.ts", "src/platforms/web/webSqliteStorage.ts"],
-      "native": ["src/platforms/native/sqliteStorage.ts"]
+    "shared": [
+      "Button/Button.tsx"
+    ]
+  },
+  "themes": [
+    "base",
+    "brutalist",
+    "liquidGlass",
+    "retro",
+    "skeuomorphic"
+  ],
+  "platforms": {
+    "storageFactory": "src/platforms/storageFactory.ts",
+    "web": {
+      "storage": "src/platforms/web/StorageService.ts",
+      "sqlite": "src/platforms/web/webSqliteStorage.ts",
+      "tech": ["Dexie", "IndexedDB", "sql.js"]
     },
-    "themes": {
-      "provider": "src/shared/themes/ThemeProvider.tsx",
-      "themes": ["base", "brutalist", "skeuomorphic"]
+    "native": {
+      "storage": "src/platforms/native/sqliteStorage.ts",
+      "tech": ["react-native-sqlite-storage"]
     }
   },
   "backend": {
-    "liturgical_api": {
+    "liturgicalApi": {
       "entry": "liturgical-api/server.js",
       "engine": "liturgical-api/liturgical-engine.js",
       "setup": "liturgical-api/setup-database.js",
@@ -97,16 +148,45 @@
       "database": "sqlite3"
     }
   },
+  "dependencies": {
+    "runtime": {
+      "react": "^19.1.0",
+      "react-native": "^0.80.1",
+      "react-native-web": "^0.20.0",
+      "dexie": "^4.0.11",
+      "sql.js": "^1.13.0",
+      "sqlite3": "^5.1.7",
+      "express": "^4.18.2",
+      "uuid": "^11.1.0"
+    },
+    "dev": {
+      "@tauri-apps/cli": "^2.10.0",
+      "typescript": "^5.0.0",
+      "vite": "^5.0.0",
+      "tailwindcss": "^3.4.17",
+      "workbox-cli": "^7.3.0"
+    }
+  },
   "configuration": {
-    "vite.config.ts": "Root Vite build config",
-    "HelloWord/vite.config.ts": "HelloWord Vite config",
-    "tsconfig.json": "TypeScript compiler",
-    "tailwind.config.js": "TailwindCSS",
-    "workbox-config.js": "PWA service worker",
-    "src-tauri/tauri.conf.json": "Tauri desktop",
-    "HelloWord/app.json": "React Native app",
-    ".github/workflows/claude-code-review.yml": "CI code review",
-    ".github/workflows/claude.yml": "CI Claude"
+    "package.json": "Root dependencies, Tauri scripts",
+    "HelloWord/package.json": "React Native dependencies",
+    "liturgical-api/package.json": "Express API dependencies",
+    "vite.config.ts": "Vite bundler config",
+    "tsconfig.json": "TypeScript compiler options",
+    "tailwind.config.js": "TailwindCSS/NativeWind",
+    "workbox-config.js": "PWA service worker config",
+    "src-tauri/tauri.conf.json": "Tauri 2.x desktop config",
+    "src-tauri/Cargo.toml": "Rust dependencies"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "tauriDev": "tauri dev",
+    "tauriBuild": "tauri build",
+    "androidDev": "tauri android dev",
+    "iosDev": "tauri ios dev",
+    "pwaBuild": "npm run build && workbox generateSW",
+    "test": "cd HelloWord && npm test"
   },
   "tests": {
     "files": [
@@ -117,41 +197,51 @@
     "command": "cd HelloWord && npm test"
   },
   "data": {
-    "hkg_foundations": "data/hkg-foundations/",
-    "word_network": "data/word-network/",
-    "test_output": "test-output/"
+    "hkgFoundations": "data/hkg-foundations/",
+    "wordNetwork": "data/word-network/",
+    "testOutput": "test-output/"
   },
-  "file_counts": {
-    "source_ts_tsx": 31,
-    "services": 7,
-    "components": 7,
+  "documentation": [
+    "CLAUDE.md",
+    "ARCHITECTURE.md",
+    "ARCHITECTURE-DYNAMIC-LITURGICAL-CALENDAR.md",
+    "ARCHITECTURE-YEAR-AGNOSTIC-LITURGICAL-ENGINE.md",
+    "ROADMAP.md",
+    "COMPREHENSIVE_SCHEMA_DOCUMENTATION.md",
+    "liturgical-api/LITURGICAL_API_DOCUMENTATION.md",
+    "liturgical-api/HYBRID_KNOWLEDGE_GRAPH_DOCUMENTATION.md"
+  ],
+  "fileCounts": {
+    "sourceTSX": 35,
+    "services": 8,
+    "components": 11,
     "tests": 2,
-    "documentation_md": 70,
-    "data_json": 10
+    "rust": 2,
+    "jsApi": 4,
+    "docsMD": 80,
+    "dataJSON": 10
   },
-  "known_issues": [
-    "src/core/types/liturgical.ts has unresolved merge conflicts",
-    "HelloWord/src/core/components/Card.tsx is untracked in git",
-    "HelloWordJ-7feb2026-12h30-session-ses_3cd1.md is untracked in git",
-    "CLI report command missing in main() switch statement (see CLAUDE.md)"
+  "knownIssues": [
+    {
+      "type": "merge-conflict",
+      "file": "src/core/types/liturgical.ts",
+      "status": "unresolved"
+    },
+    {
+      "type": "missing-feature",
+      "description": "CLI report command missing in main() switch",
+      "reference": "CLAUDE.md"
+    }
   ],
   "constraints": [
-    "NO placeholder data - calculate on-demand",
+    "NO placeholder data - calculate on-demand, cache only what's used",
     "Match divinumofficium.com exactly - any mismatch is a blocker",
-    "Clean room implementation - no direct copying",
-    "Offline-first architecture"
+    "Clean room implementation - no direct copying from reference",
+    "Offline-first architecture - SQLite/IndexedDB storage"
   ],
-  "token_efficiency": {
-    "index_size": "3K tokens",
-    "full_codebase": "58K tokens",
-    "reduction": "94%"
-  },
-  "commands": {
-    "dev": "npm run dev",
-    "build": "npm run build",
-    "test": "cd HelloWord && npm test",
-    "api_dev": "cd liturgical-api && npm run dev",
-    "tauri_dev": "npm run tauri:dev",
-    "pwa_build": "npm run pwa:build"
+  "tokenEfficiency": {
+    "indexTokens": 3000,
+    "fullCodebaseTokens": 60000,
+    "reduction": "95%"
   }
 }

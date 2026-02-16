@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Parish Bulletin &amp; Fellowship</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#1152d4",
+                "background-light": "#f6f6f8",
+                "background-dark": "#101622",
+                "surface-light": "#ffffff",
+                "surface-dark": "#1a2233",
+              },
+              fontFamily: {
+                "display": ["Noto Serif", "serif"],
+                "sans": ["Noto Sans", "sans-serif"],
+              },
+              borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hiding */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white transition-colors duration-200">
+<div class="relative flex h-full min-h-screen w-full flex-col overflow-x-hidden pb-20">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm p-4 border-b border-slate-200 dark:border-slate-800 justify-between">
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<div class="flex flex-col items-center">
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em] text-center">St. Jude’s Parish</h2>
+<span class="text-xs font-medium text-primary uppercase tracking-widest">Vita Parochialis</span>
+</div>
+<button class="flex size-10 shrink-0 items-center justify-center rounded-full text-slate-900 dark:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors relative">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-2 right-2 size-2 bg-red-500 rounded-full"></span>
+</button>
+</div>
+<!-- Announcements Section -->
+<div class="flex flex-col pt-4">
+<div class="px-4 flex items-center justify-between pb-2">
+<h3 class="text-lg font-bold leading-tight">Announcements <span class="text-slate-400 dark:text-slate-500 text-sm font-normal italic ml-1">(Nuntii)</span></h3>
+<button class="text-primary text-sm font-bold">See All</button>
+</div>
+<!-- Carousel -->
+<div class="flex overflow-y-auto no-scrollbar pb-2">
+<div class="flex items-stretch px-4 gap-4">
+<!-- Card 1 -->
+<div class="flex h-full flex-col gap-3 min-w-[280px] group cursor-pointer">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Priest celebrating mass at high altar with candles" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuD01iJ-EcGbFaTAP0iWmme7px6fPXGC7G6-WzDADVJraGCXrc2TYqKlgCeJF5ADTdgNvHZoWuiIyMgJxZ6hq8A8-gGKXPWslN6qx4UCiv6Y27oigPeso2X16al2SQoVoqGFZCYHfocOSGn4NIJ8nRnpsLQ9aKeJAcQLRDCYUFqTS2VcBEcE7MfwdAlx5aL_zqh-Osj3fI7x9sVU1XdmX5tCV3xrexFc7TfNyv1APHHIzZ7993aVLLbmmkqI7k48u8IgtAwa40QO1sgj");'>
+</div>
+<div class="absolute bottom-3 left-3 z-20">
+<span class="px-2 py-1 rounded bg-primary text-white text-xs font-bold mb-1 inline-block">Nov 2</span>
+<p class="text-white text-lg font-bold leading-tight shadow-sm">Requiem Mass</p>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm">All Souls Day - 10:00 AM</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="flex h-full flex-col gap-3 min-w-[280px] group cursor-pointer">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Families gathering outdoors for a picnic on sunny grass" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDfizUIXqvHbsshQC81RKqre9BIeZ5aEXDFXB1KwkxkGp4CRQHJ-nXUVnhfkqsfKqWcIkzNAIJmduq5DgXpSrMmdjf1merWO9DIsDAzpKLgbExfpShu6f9aXDKAe0IPet0XlDkvq4KtZs-ZduWi5_Jbg-JwnTAUz_Dt0rUxO05fCdoK7TgAXy5X8ADGngzaVolseFeo85toI7cjCi6ql-hXXveYRSc1k2nVpZ6vTUpBG6FnyZxNbjfHqML0RM-OQwOI84aS9W7WX5EG");'>
+</div>
+<div class="absolute bottom-3 left-3 z-20">
+<span class="px-2 py-1 rounded bg-primary text-white text-xs font-bold mb-1 inline-block">Sunday</span>
+<p class="text-white text-lg font-bold leading-tight shadow-sm">Parish Picnic</p>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm">After High Mass</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="flex h-full flex-col gap-3 min-w-[280px] group cursor-pointer">
+<div class="relative w-full aspect-video rounded-xl overflow-hidden shadow-md">
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
+<div class="w-full h-full bg-center bg-cover transform group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a church with focus on stained glass window" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB5tF8yk0TEzGbbiakOgjebJ6CdRi8Gc6Uur1Z8tfvcKtvJor4zyEfMDOWjg3MLUyclZ8ewZfI4DO1z6OA3YmwdhOzUVj3KW0E3rbBwMA7Q2lAjrjwYhQWZ5Gfd9ipN3Xn15a8RmZEVkH7NtReTxTXihr3HHwOQES3W3VPBROXpqPPJ6aB_2LjArlxGx7cDP3zJGd-q6fvXiGKAzCOGoUC_ld3LxrgwSzTaPy5uMZEN9CbgW7QOZR31LhRX9mlyfO0A3jd4Tqge1Zcv");'>
+</div>
+<div class="absolute bottom-3 left-3 z-20">
+<span class="px-2 py-1 rounded bg-slate-600 text-white text-xs font-bold mb-1 inline-block">Volunteer</span>
+<p class="text-white text-lg font-bold leading-tight shadow-sm">Altar Server Training</p>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<p class="text-slate-500 dark:text-slate-400 text-sm">Saturday, 2:00 PM</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer/Divider -->
+<div class="h-px bg-slate-200 dark:bg-slate-800 mx-4 my-6"></div>
+<!-- Weekly Schedule Section -->
+<div class="flex flex-col">
+<h3 class="text-lg font-bold leading-tight px-4 pb-3">Weekly Schedule <span class="text-slate-400 dark:text-slate-500 text-sm font-normal italic ml-1">(Ordo Hebdomadae)</span></h3>
+<div class="flex flex-col gap-1">
+<!-- List Item 1 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">church</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-base font-medium leading-normal line-clamp-1">Missa Cantata</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">Sunday, 10:00 AM</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="text-xs font-medium text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">High Altar</span>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-purple-500/10 text-purple-500">
+<span class="material-symbols-outlined">key_visualizer</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-base font-medium leading-normal line-clamp-1">Confession (Confessio)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">Sat, 3:00 PM - 4:45 PM</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="text-xs font-medium text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">Chapel</span>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="flex items-center gap-4 px-4 py-3 hover:bg-slate-100 dark:hover:bg-slate-800/50 transition-colors cursor-pointer border-b border-slate-100 dark:border-slate-800/50 last:border-0">
+<div class="flex size-10 shrink-0 items-center justify-center rounded-lg bg-amber-500/10 text-amber-500">
+<span class="material-symbols-outlined">light_mode</span>
+</div>
+<div class="flex flex-col justify-center flex-1">
+<p class="text-base font-medium leading-normal line-clamp-1">Vespers (Vesperae)</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-normal leading-normal line-clamp-2">Sunday, 5:00 PM</p>
+</div>
+<div class="shrink-0 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 text-sm">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Spacer/Divider -->
+<div class="h-px bg-slate-200 dark:bg-slate-800 mx-4 my-6"></div>
+<!-- Fellowship Section -->
+<div class="flex flex-col bg-surface-light dark:bg-surface-dark py-6 rounded-t-3xl shadow-[0_-4px_20px_rgba(0,0,0,0.1)] dark:shadow-none min-h-[400px]">
+<div class="px-4 flex items-center justify-between mb-4">
+<h3 class="text-lg font-bold leading-tight">Fellowship <span class="text-slate-400 dark:text-slate-500 text-sm font-normal italic ml-1">(Communio)</span></h3>
+</div>
+<!-- Input Area -->
+<div class="px-4 mb-6">
+<div class="bg-slate-50 dark:bg-[#111722] border border-slate-200 dark:border-slate-700 rounded-xl p-3 focus-within:ring-1 focus-within:ring-primary focus-within:border-primary transition-all">
+<div class="flex gap-3">
+<div class="size-8 rounded-full bg-slate-300 dark:bg-slate-600 bg-cover bg-center shrink-0" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDv2PeFo5gaEmmtRNpTSTKlzVzWnErJCoxb7WDPQVjRj9apN88gGC1iYdiefas788T7U2Zy3TRI4IpcDbne_lxWAJzK-7n9XCckf72YPAJtWIW--PaafxQX_J0GRrdZ3pPwsPB2PCOmlPxkQ1HdrXzqmbMk0gpDGN_P3gxsmJyrPVAsHKnE6svXTvac9yLNRq9yJqsPUwznsVJwrhHlZiuP-dxtTN6Y3awK19FXb2zECSCHln1fldxs6xRnOC25IUhS8uK5a8LKp5q3");'>
+</div>
+<textarea class="w-full bg-transparent border-none text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 text-base font-sans resize-none focus:ring-0 p-0 min-h-[60px]" placeholder="Share a reflection from today's Homily..."></textarea>
+</div>
+<div class="flex justify-between items-center mt-2 pt-2 border-t border-slate-200 dark:border-slate-800/50">
+<div class="flex items-center gap-1 bg-slate-200 dark:bg-slate-800 rounded-full px-3 py-1 cursor-pointer hover:bg-slate-300 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xs text-slate-600 dark:text-slate-400">lock</span>
+<span class="text-xs font-bold text-slate-600 dark:text-slate-400">Private Journal</span>
+<span class="material-symbols-outlined text-xs text-slate-600 dark:text-slate-400 ml-1">expand_more</span>
+</div>
+<button class="bg-primary hover:bg-blue-700 text-white text-sm font-bold px-4 py-1.5 rounded-lg transition-colors">
+                        Post
+                    </button>
+</div>
+</div>
+</div>
+<!-- Feed List -->
+<div class="flex flex-col gap-6 px-4">
+<!-- Post 1 (User) -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-cover bg-center" data-alt="Profile picture of Thomas A" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBHjb5k01LO2rb31you6ppE70LmsQ0Du_9Tzx2nHnra5mdjYmXyvFNhrwmb9B-_xIxFYvz1WusQqYdrWqNMFyxp1HKZS0aAmDVOVQc6DVigJFrYMxoieRifOpCQMIA37yzhNF5nB_rlx5U4U5lAGOCNkDMyyEFBIqrx9psgy82Jiz0AtQX4nQn7gzJSmVDJ1D5wE4QY6ilypthRrKt9gLV0mIna9lCO66z12kHu_kQ3ScFrC_15S77-vniHgKxx-WevibxPeVP10Swt");'>
+</div>
+<div class="flex flex-col">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Thomas Aquinas</p>
+<p class="text-xs text-slate-500 dark:text-slate-400">2 hours ago</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="pl-[52px]">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-sans leading-relaxed">
+                        The chant for the Kyrie was particularly moving today. It really helped me focus on the penitential nature of the season. <span class="text-primary cursor-pointer hover:underline">#GregorianChant</span>
+</p>
+<div class="flex gap-4 mt-3">
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">favorite</span>
+<span class="text-xs">12</span>
+</button>
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">chat_bubble</span>
+<span class="text-xs">Reply</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Post 2 (Admin) -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-10 rounded-full bg-primary flex items-center justify-center text-white">
+<span class="material-symbols-outlined">church</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<p class="text-sm font-bold text-slate-900 dark:text-white">Parish Office</p>
+<span class="bg-primary/20 text-primary text-[10px] px-1.5 py-0.5 rounded font-bold uppercase">Admin</span>
+</div>
+<p class="text-xs text-slate-500 dark:text-slate-400">5 hours ago</p>
+</div>
+</div>
+<button class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+<span class="material-symbols-outlined">more_horiz</span>
+</button>
+</div>
+<div class="pl-[52px]">
+<p class="text-slate-700 dark:text-slate-300 text-sm font-sans leading-relaxed">
+                        We are still looking for two volunteers to help set up the coffee hour after the 10am High Mass next Sunday. Please sign up above if you can help!
+                    </p>
+<div class="flex gap-4 mt-3">
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">favorite</span>
+<span class="text-xs">8</span>
+</button>
+<button class="flex items-center gap-1 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-lg">chat_bubble</span>
+<span class="text-xs">2</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Navigation (Sticky) -->
+<div class="fixed bottom-0 left-0 w-full bg-background-light dark:bg-background-dark border-t border-slate-200 dark:border-slate-800 pb-safe pt-2 px-6 flex justify-between items-center z-50 h-[80px]">
+<div class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-y-0.5 transition-transform">auto_stories</span>
+<span class="text-[10px] font-bold">Missal</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-primary cursor-pointer transition-colors">
+<span class="material-symbols-outlined text-2xl fill-current">diversity_3</span>
+<span class="text-[10px] font-bold">Parish</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-y-0.5 transition-transform">calendar_month</span>
+<span class="text-[10px] font-bold">Calendar</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-slate-400 hover:text-primary cursor-pointer transition-colors group">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-y-0.5 transition-transform">settings</span>
+<span class="text-[10px] font-bold">Settings</span>
+</div>
+</div>
+</body></html>

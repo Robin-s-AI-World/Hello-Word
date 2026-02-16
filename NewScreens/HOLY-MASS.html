@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Traditional Latin Mass Missal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "primary-glow": "#3b82f6", 
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "rubric": "#f87171", // Soft red for instructions
+                        "text-latin": "#ffffff",
+                        "text-english": "#9ca3af",
+                        "mystical": "#8b5cf6", // Violet for mystical insights
+                        "mystical-glow": "#a78bfa",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                    animation: {
+                        'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+                        'pulse-glow': 'pulse-glow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: '1', transform: 'scale(1)' },
+                            '50%': { opacity: '0.8', transform: 'scale(1.05)', boxShadow: '0 0 15px rgba(139, 92, 246, 0.5)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .drop-cap::first-letter {
+            float: left;
+            font-size: 3.5rem;
+            line-height: 0.7;
+            font-weight: 400;
+            margin-right: 0.1em;
+            margin-top: 0.1em;
+            color: #1152d4;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen flex flex-col font-display antialiased selection:bg-primary/30 selection:text-white relative overflow-x-hidden">
+<div class="fixed right-1 top-1/2 -translate-y-1/2 h-[60%] w-8 z-40 flex flex-col items-center justify-between pointer-events-auto opacity-80 hover:opacity-100 transition-opacity hidden sm:flex">
+<div class="absolute top-0 bottom-0 left-1/2 w-[1px] bg-gray-300 dark:bg-white/10 -translate-x-1/2 rounded-full"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary relative z-10 cursor-pointer shadow-[0_0_8px_#3b82f6]" title="Asperges"></div>
+<div class="w-2 h-2 rounded-full bg-primary-glow relative z-10 cursor-pointer shadow-[0_0_12px_#3b82f6] ring-2 ring-background-dark" title="Introit"></div>
+<div class="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 relative z-10 cursor-pointer hover:bg-white hover:scale-150 transition-all" title="Kyrie"></div>
+<div class="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 relative z-10 cursor-pointer hover:bg-white hover:scale-150 transition-all" title="Gloria"></div>
+<div class="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 relative z-10 cursor-pointer hover:bg-white hover:scale-150 transition-all" title="Collect"></div>
+<div class="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 relative z-10 cursor-pointer hover:bg-white hover:scale-150 transition-all" title="Canon"></div>
+<div class="w-1 h-1 rounded-full bg-gray-400 dark:bg-gray-600 relative z-10 cursor-pointer hover:bg-white hover:scale-150 transition-all" title="Communion"></div>
+</div>
+<header class="sticky top-0 z-50 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md border-b border-gray-200 dark:border-white/10 shadow-lg shadow-black/5">
+<div class="flex items-center justify-between p-4 pb-2">
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-xs font-sans font-medium uppercase tracking-widest text-primary glow-text">Sunday Mass</span>
+<h1 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-tight">Ordinary of the Mass</h1>
+</div>
+<button class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-white/10 transition-colors">
+<span class="material-symbols-outlined text-2xl">settings</span>
+</button>
+</div>
+<div class="relative w-full h-16 flex items-center px-4 bg-background-light dark:bg-background-dark overflow-hidden">
+<div class="absolute top-[28px] left-8 right-8 h-[1px] bg-primary-glow/50 dark:bg-primary-glow/40 z-0 shadow-[0_0_8px_rgba(59,130,246,0.6)]"></div>
+<div class="w-full flex justify-between items-start pt-1 h-full z-10 px-2 overflow-x-auto no-scrollbar">
+<button class="group flex flex-col items-center gap-2 cursor-pointer focus:outline-none w-12 shrink-0">
+<div class="w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_#3b82f6] ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-bold uppercase tracking-wider text-primary truncate w-full text-center opacity-80">Asperges</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer focus:outline-none w-12 -mt-1 shrink-0">
+<div class="relative flex items-center justify-center">
+<div class="absolute w-8 h-8 bg-primary-glow rounded-full animate-ping opacity-20"></div>
+<div class="absolute w-5 h-5 bg-primary-glow rounded-full animate-pulse opacity-40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-cyan-300 shadow-[0_0_12px_#22d3ee] relative z-10 ring-2 ring-background-light dark:ring-background-dark"></div>
+</div>
+<span class="text-[9px] font-sans font-bold uppercase tracking-wider text-cyan-300 drop-shadow-[0_0_5px_rgba(34,211,238,0.5)] truncate w-full text-center mt-1.5">Introit</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 focus:outline-none w-12 shrink-0">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 truncate w-full text-center">Kyrie</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 focus:outline-none w-12 shrink-0">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 truncate w-full text-center">Gloria</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 focus:outline-none w-12 shrink-0">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 truncate w-full text-center">Collect</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 focus:outline-none w-12 shrink-0">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 truncate w-full text-center">Canon</span>
+</button>
+<button class="group flex flex-col items-center gap-2 cursor-pointer opacity-50 hover:opacity-100 focus:outline-none w-12 shrink-0">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 ring-4 ring-background-light dark:ring-background-dark"></div>
+<span class="text-[8px] font-sans font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 truncate w-full text-center">Comm</span>
+</button>
+</div>
+</div>
+</header>
+<main class="flex-1 flex flex-col pb-32">
+<section class="border-b border-gray-200 dark:border-white/5 py-8">
+<div class="w-full max-w-md mx-auto px-4 mb-6">
+<p class="text-rubric font-serif italic text-sm text-center font-medium">[The Priest stands at the foot of the altar.]</p>
+</div>
+<div class="grid grid-cols-2 gap-6 px-4">
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left drop-cap">
+                    In nómine Patris, et Fílii, et Spíritus Sancti. Amen.
+                </div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left pt-1 font-light">
+                    In the name of the Father, and of the Son, and of the Holy Ghost. Amen.
+                </div>
+</div>
+</section>
+<section class="py-8 relative">
+<div class="w-full max-w-md mx-auto px-4 mb-8">
+<h2 class="text-rubric font-serif font-bold text-2xl sm:text-3xl text-center uppercase tracking-wide leading-tight drop-shadow-sm">Psalm 42:1-5</h2>
+</div>
+<div class="grid grid-cols-2 gap-6 px-4">
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left">
+<p class="mb-4">Introíbo ad altáre <span class="bg-primary/30 text-white rounded px-0.5 cursor-pointer border-b-2 border-primary relative" id="selected-word">Dei</span>.</p>
+<p>Ad Deum qui lætíficat juventútem meam.</p>
+</div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left font-light">
+<p class="mb-4">I will go in to the altar of God.</p>
+<p>To God, the joy of my youth.</p>
+</div>
+</div>
+</section>
+<section class="py-8 border-t border-gray-200 dark:border-white/5 bg-gray-50/50 dark:bg-white/[0.02]">
+<div class="grid grid-cols-2 gap-6 px-4 relative">
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left">
+                    Júdica me, Deus, et discérne causam meam de gente non sancta: ab hómine iníquo, et dolóso érue me.
+                </div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left font-light">
+                    Judge me, O God, and distinguish my cause from the nation that is not holy: deliver me from the unjust and deceitful man.
+                </div>
+</div>
+</section>
+<section class="py-12 border-t border-gray-200 dark:border-white/5 bg-gradient-to-b from-transparent to-mystical/5">
+<div class="w-full max-w-md mx-auto px-4 mb-6 flex items-center justify-center gap-3">
+<div class="h-px bg-white/20 w-12"></div>
+<h2 class="text-gray-500 dark:text-gray-400 font-sans font-medium text-xs tracking-[0.2em] uppercase">The Canon of the Mass</h2>
+<div class="h-px bg-white/20 w-12"></div>
+</div>
+<div class="grid grid-cols-2 gap-6 px-4 relative">
+<div class="col-span-2 mb-4 relative group">
+<div class="absolute -left-2 top-0 bottom-0 w-1 bg-mystical/30 rounded-full group-hover:bg-mystical transition-colors duration-500"></div>
+<div class="flex items-start gap-3 pl-4">
+<div class="mt-1">
+<button class="relative flex items-center justify-center w-8 h-8 rounded-full bg-background-dark border border-mystical/30 hover:border-mystical text-mystical transition-all group-hover:scale-110 shadow-[0_0_10px_rgba(139,92,246,0.15)] animate-pulse-glow">
+<span class="material-symbols-outlined text-[18px]">lightbulb</span>
+<span class="absolute -top-1 -right-1 flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-mystical opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-mystical"></span>
+</span>
+</button>
+</div>
+<div class="flex-1 bg-mystical/10 rounded-xl p-4 border border-mystical/20 backdrop-blur-sm">
+<h4 class="text-mystical-glow font-serif font-bold text-sm mb-1 flex items-center gap-2">
+                            Mystical Silence
+                            <span class="text-[10px] font-sans uppercase tracking-wider text-white/40 border border-white/10 rounded px-1.5 py-0.5">Did you know?</span>
+</h4>
+<p class="text-gray-300 text-xs leading-relaxed font-sans">
+                            The Canon is prayed in a whisper to signify the <span class="text-white font-medium italic">"cloud of unknowing"</span> that surrounded Moses on Sinai. This silence creates a sacred space where the priest enters the Holy of Holies alone to speak with God face-to-face.
+                        </p>
+</div>
+</div>
+</div>
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left">
+                    Te ígitur, clementíssime Pater, per Jesum Christum, Fílium tuum, Dóminum nostrum, súpplices rogámus, et pétimus...
+                </div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left font-light">
+                    We therefore, most humble pray and beseech Thee, most merciful Father, through Jesus Christ, Thy Son, our Lord...
+                </div>
+</div>
+</section>
+<section class="py-12 border-t border-gray-200 dark:border-white/5 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+<div class="w-full max-w-md mx-auto px-4 mb-6">
+<h2 class="text-rubric font-serif font-bold text-2xl sm:text-3xl text-center uppercase tracking-wide leading-tight drop-shadow-sm">Communion</h2>
+</div>
+<div class="grid grid-cols-2 gap-6 px-4 pb-4">
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left">
+                    Hæc commíxtio, et consecrátio Córporis et Sánguinis Dómini nostri Jesu Christi, fiat accipiéntibus nobis in vitam ætérnam. Amen.
+                </div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left font-light">
+                    May this commingling and consecration of the Body and Blood of our Lord Jesus Christ be to us that receive it effectual to eternal life. Amen.
+                </div>
+</div>
+<div class="mx-4 mt-6 mb-8">
+<div class="relative bg-gradient-to-r from-background-dark via-[#1a1f2e] to-background-dark border border-white/10 rounded-2xl p-1 overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-r from-mystical/0 via-mystical/5 to-mystical/0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+<div class="flex flex-col sm:flex-row gap-4 p-4 relative z-10">
+<div class="shrink-0 flex items-start justify-center pt-1">
+<div class="relative">
+<div class="w-10 h-10 rounded-full bg-mystical/20 flex items-center justify-center border border-mystical/40 animate-pulse-glow">
+<span class="material-symbols-outlined text-mystical text-xl">auto_awesome</span>
+</div>
+</div>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-mystical-glow font-serif font-bold text-base">The Mystery of Commingling</h4>
+<span class="text-[10px] bg-mystical/20 text-mystical px-2 py-0.5 rounded-full font-sans font-bold uppercase tracking-wider">Symbolism</span>
+</div>
+<p class="text-gray-400 text-sm leading-relaxed mb-3 font-sans">
+                            When the priest drops a particle of the Host into the Chalice, it signifies the <span class="text-white font-medium">Reunion of Christ's Body and Blood</span>—symbolizing His glorious Resurrection. Just as death separated His Body from His Blood, this action mystically reunites them before we receive Him.
+                        </p>
+<div class="flex items-center gap-2">
+<div class="h-px flex-1 bg-white/5"></div>
+<span class="text-[10px] text-gray-500 uppercase tracking-widest font-sans">Read More</span>
+<span class="material-symbols-outlined text-sm text-gray-500">arrow_forward</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="py-8 border-t border-gray-200 dark:border-white/5">
+<div class="w-full max-w-md mx-auto px-4 mb-6">
+<p class="text-rubric font-serif italic text-sm text-center font-medium">[The Priest bows slightly.]</p>
+</div>
+<div class="grid grid-cols-2 gap-6 px-4">
+<div class="text-gray-900 dark:text-text-latin text-lg leading-relaxed text-left">
+                    Quia tu es, Deus, fortitúdo mea: quare me repulísti? et quare tristis incédo, dum afflígit me inimícus?
+                </div>
+<div class="text-gray-600 dark:text-text-english text-base leading-relaxed italic text-left font-light">
+                    For Thou art God my strength: why hast Thou cast me off? and why do I go sorrowful whilst the enemy afflicteth me?
+                </div>
+</div>
+</section>
+</main>
+<button class="fixed bottom-24 right-6 z-40 flex items-center justify-center w-14 h-14 rounded-full bg-primary text-white shadow-lg shadow-primary/40 hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-primary/30">
+<span class="material-symbols-outlined text-3xl">add</span>
+</button>
+<nav class="fixed bottom-0 w-full z-50 bg-background-light/95 dark:bg-[#0c111a]/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 pb-safe pt-2 pb-5">
+<div class="flex justify-around items-center h-full max-w-lg mx-auto">
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[26px]">home</span>
+<span class="text-[10px] font-sans font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-primary dark:text-white">
+<span class="material-symbols-outlined text-[26px] fill-current">menu_book</span>
+<span class="text-[10px] font-sans font-bold">Missal</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[26px]">calendar_month</span>
+<span class="text-[10px] font-sans font-medium">Calendar</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[26px]">favorite</span>
+<span class="text-[10px] font-sans font-medium">Prayers</span>
+</button>
+<button class="flex flex-col items-center justify-center gap-1 w-16 text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-white transition-colors">
+<span class="material-symbols-outlined text-[26px]">person</span>
+<span class="text-[10px] font-sans font-medium">Profile</span>
+</button>
+</div>
+</nav>
+</body></html>

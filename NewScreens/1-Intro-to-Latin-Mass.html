@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Introduction to the TLM</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                        "liturgical-green": "#2d6a4f",
+                        "liturgical-gold": "#d4af37",
+                        "liturgical-red": "#b91c1c",
+                        "surface-dark": "#1a2233",
+                        "surface-light": "#ffffff",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .drop-cap {
+            float: left;
+            font-size: 3.25rem;
+            line-height: 0.8;
+            font-weight: 700;
+            margin-right: 0.5rem;
+            margin-top: 0.15rem;
+            color: #d4af37;}
+        .rubric {
+            color: #b91c1c;font-style: italic;
+            font-size: 0.875rem;
+        }
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.prose-text {
+            font-family: 'Noto Serif', serif;
+            line-height: 1.6;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col overflow-hidden text-gray-900 dark:text-gray-100">
+<div class="relative z-20 flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between border-b border-gray-200 dark:border-gray-800 shadow-sm">
+<button class="text-gray-900 dark:text-white flex size-12 shrink-0 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h2 class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Introduction</h2>
+<button class="flex size-12 items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[#92a4c9]">text_fields</span>
+</button>
+</div>
+<main class="flex-1 overflow-y-auto no-scrollbar pb-32 relative">
+<div class="px-6 py-8">
+<h1 class="text-3xl font-bold mb-2 text-center text-gray-900 dark:text-white">The Traditional Latin Mass</h1>
+<p class="rubric text-center mb-6">Introibo ad altare Dei</p>
+<div class="mb-8 prose-text text-gray-800 dark:text-gray-200 text-lg text-justify">
+<p>
+<span class="drop-cap">T</span>he Traditional Latin Mass, also known as the Tridentine Mass, is the liturgy of the Roman Rite as it was celebrated for centuries prior to the reforms following the Second Vatican Council. Codified by Pope St. Pius V in 1570, it represents a living connection to the early Church and the medieval saints. It is characterized by its use of Latin, the Gregorian Chant, and a profound sense of reverence and silence.
+                </p>
+</div>
+<div class="mb-10 bg-liturgical-gold/10 dark:bg-yellow-900/10 border-l-4 border-liturgical-gold p-4 rounded-r-lg">
+<h3 class="text-liturgical-gold font-bold uppercase text-xs tracking-widest mb-2">The 2008 Motu Proprio</h3>
+<p class="text-sm font-medium italic text-gray-700 dark:text-gray-300">
+                    "What earlier generations held as sacred, remains sacred and great for us too, and it cannot be all of a sudden entirely forbidden or even considered harmful."
+                </p>
+<p class="text-xs text-right mt-2 font-bold opacity-70">— Pope Benedict XVI, <span class="italic">Summorum Pontificum</span></p>
+</div>
+<hr class="border-gray-200 dark:border-gray-800 mb-10 w-1/2 mx-auto"/>
+<div class="mb-12">
+<h2 class="text-xl font-bold mb-1 text-center">Forms of the Mass</h2>
+<p class="rubric text-center mb-6 text-sm">Distinctions in celebration</p>
+<div class="space-y-4">
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+<div class="w-12 h-12 shrink-0 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500">
+<span class="material-symbols-outlined">candle</span>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Missa Lecta</h3>
+<p class="text-xs uppercase tracking-wide text-gray-500 mb-2">Low Mass</p>
+<ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>Spoken, not sung</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>One priest, one or two servers</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>Usually two altar candles</li>
+</ul>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-liturgical-gold/30 shadow-md relative overflow-hidden">
+<div class="absolute right-0 top-0 p-2 opacity-5">
+<span class="material-symbols-outlined text-8xl">music_note</span>
+</div>
+<div class="w-12 h-12 shrink-0 rounded-full bg-liturgical-gold/20 flex items-center justify-center text-liturgical-gold">
+<span class="material-symbols-outlined">queue_music</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-bold text-gray-900 dark:text-white">Missa Cantata</h3>
+<p class="text-xs uppercase tracking-wide text-liturgical-gold mb-2">Sung Mass</p>
+<ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-liturgical-gold rounded-full"></span>Parts of the Mass are sung</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-liturgical-gold rounded-full"></span>Incense may be used</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-liturgical-gold rounded-full"></span>Six altar candles</li>
+</ul>
+</div>
+</div>
+<div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-800 shadow-sm">
+<div class="w-12 h-12 shrink-0 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-gray-500">
+<span class="material-symbols-outlined">groups</span>
+</div>
+<div>
+<h3 class="font-bold text-gray-900 dark:text-white">Missa Solemnis</h3>
+<p class="text-xs uppercase tracking-wide text-gray-500 mb-2">Solemn High Mass</p>
+<ul class="text-sm text-gray-600 dark:text-gray-400 space-y-1">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>Assisted by Deacon &amp; Subdeacon</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>Full ceremonial &amp; incense</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-gray-400 rounded-full"></span>The normative form of the rite</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-gray-200 dark:border-gray-800 mb-10 w-1/2 mx-auto"/>
+<div class="mb-12">
+<h2 class="text-xl font-bold mb-4">Considerations for Attendance</h2>
+<div class="grid grid-cols-1 gap-6">
+<div class="relative pl-4 border-l-2 border-green-600">
+<h4 class="font-bold text-sm uppercase tracking-wider text-green-700 dark:text-green-500 mb-1">FSSP / ICKSP</h4>
+<p class="text-xs text-gray-500 mb-2">Full Communion</p>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Groups like the Priestly Fraternity of St. Peter (FSSP) and the Institute of Christ the King (ICKSP) are established by the Holy See and are in full, regular canonical standing. The sacraments here are licit and valid.
+                        </p>
+</div>
+<div class="relative pl-4 border-l-2 border-orange-500">
+<h4 class="font-bold text-sm uppercase tracking-wider text-orange-600 dark:text-orange-400 mb-1">SSPX</h4>
+<p class="text-xs text-gray-500 mb-2">Irregular Status</p>
+<p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            The Society of St. Pius X (SSPX) holds a complex canonical status. While their priests are validly ordained, the society lacks regular jurisdiction. Attendance fulfills the Sunday obligation, but discretion is advised regarding governance.
+                        </p>
+</div>
+</div>
+</div>
+<div class="relative overflow-hidden rounded-2xl bg-surface-dark text-white shadow-xl">
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent z-10"></div>
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1544211910-449be1a48c93?q=80&amp;w=600&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-40"></div>
+<div class="relative z-20 p-6">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-liturgical-red">account_circle</span>
+<span class="rubric text-liturgical-red not-italic font-bold text-xs uppercase tracking-widest">Ministrare</span>
+</div>
+<h2 class="text-2xl font-bold mb-3">Serving at the Altar</h2>
+<p class="text-gray-200 text-sm mb-6 leading-relaxed">
+                        To serve at the altar is a privilege next to the priesthood itself. Learn the responses, the movements, and the rubrics required for the acolyte.
+                    </p>
+<button class="bg-white text-black px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-100 transition-colors flex items-center gap-2">
+                        View Server Guide
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+<div class="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-[#151b28] border-t border-gray-200 dark:border-gray-800 pb-safe">
+<div class="flex justify-around items-center h-16 px-2">
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">church</span>
+<span class="text-[10px] font-medium tracking-wide">Mass</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">book_2</span>
+<span class="text-[10px] font-medium tracking-wide">Readings</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-primary">
+<span class="material-symbols-outlined text-2xl fill-1">school</span>
+<span class="text-[10px] font-medium tracking-wide">Learn</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">music_note</span>
+<span class="text-[10px] font-medium tracking-wide">Chant</span>
+</button>
+<button class="flex flex-col items-center justify-center w-full h-full space-y-1 text-gray-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-2xl">more_horiz</span>
+<span class="text-[10px] font-medium tracking-wide">More</span>
+</button>
+</div>
+<div class="h-4 w-full"></div>
+</div>
+
+</body></html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>App Splash &amp; About Modal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37","primary-dim": "#a68826",
+                        "background-dark": "#0f1216","surface-dark": "#1a1e26",
+                        "surface-modal": "#232833",
+                        "text-primary": "#f0f0f0",
+                        "text-secondary": "#9ca3af",
+                        "text-muted": "#6b7280",
+                    },
+                    fontFamily: {
+                        "display": ["Cinzel", "serif"],
+                        "body": ["Noto Serif", "serif"]
+                    },
+                    backgroundImage: {
+                        'sacred-pattern': "url('https://www.transparenttextures.com/patterns/black-linen.png')",
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            background-color: #0f1216;
+            font-family: 'Noto Serif', serif;
+        }.chi-rho-container {
+            position: relative;
+            display: inline-block;
+        }
+        .text-glow {
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+        }.modal-backdrop {
+            background: rgba(0, 0, 0, 0.65);
+            backdrop-filter: blur(4px);
+        }#modal-toggle {
+            display: none;
+        }
+        #modal-toggle:checked ~ .modal-overlay {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+        }
+        #modal-toggle:checked ~ .modal-overlay .modal-content {
+            transform: scale(1) translateY(0);
+            opacity: 1;
+        }
+        .modal-overlay {
+            opacity: 0;
+            pointer-events: none;
+            visibility: hidden;
+            transition: all 0.3s ease-in-out;
+        }
+        .modal-content {
+            transform: scale(0.95) translateY(10px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-text-primary h-screen flex flex-col items-center justify-between relative overflow-hidden bg-sacred-pattern">
+<div class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 bg-[radial-gradient(circle_at_center,_rgba(26,30,38,1)_0%,_rgba(15,18,22,1)_100%)]"></div>
+<div class="relative z-10 flex-1 flex flex-col items-center justify-center w-full px-8">
+<div class="chi-rho-container mb-10 text-primary opacity-90 animate-pulse-slow">
+<svg fill="currentColor" height="120" viewBox="0 0 100 100" width="120" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 10V90M50 10C65 10 75 20 75 35C75 50 65 60 50 60" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M30 75L70 25M30 25L70 75" stroke="currentColor" stroke-linecap="round" stroke-width="3"></path>
+<path d="M20 50L25 40L30 50M22 47H28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"></path>
+<path d="M70 50C70 45 72 40 75 40C78 40 80 45 80 50H78" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path>
+</svg>
+</div>
+<h1 class="text-3xl font-display font-semibold tracking-widest text-white text-center mb-2 text-glow">MISSALE</h1>
+<p class="text-primary-dim font-display text-sm tracking-[0.2em] uppercase mb-12">Romanum</p>
+<div class="flex items-center gap-1 h-1">
+<div class="w-1.5 h-1.5 rounded-full bg-primary/50 animate-[bounce_1.4s_infinite_ease-in-out]"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/50 animate-[bounce_1.4s_infinite_ease-in-out_0.2s]"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-primary/50 animate-[bounce_1.4s_infinite_ease-in-out_0.4s]"></div>
+</div>
+</div>
+<div class="relative z-10 w-full px-6 pb-12 flex flex-col items-center">
+<label class="cursor-pointer group flex items-center gap-2 px-6 py-3 rounded-full bg-surface-dark/50 hover:bg-surface-dark border border-white/5 hover:border-primary/20 transition-all duration-300" for="modal-toggle">
+<span class="material-symbols-outlined text-primary-dim text-lg group-hover:text-primary transition-colors">info</span>
+<span class="font-body text-sm text-text-secondary group-hover:text-text-primary tracking-wide transition-colors">About</span>
+</label>
+<p class="mt-6 text-[10px] text-text-muted uppercase tracking-widest opacity-60">Ad Maiorem Dei Gloriam</p>
+</div>
+<input id="modal-toggle" type="checkbox"/>
+<div class="modal-overlay fixed inset-0 z-50 flex items-center justify-center px-4 modal-backdrop">
+<label class="absolute inset-0 z-40 cursor-default" for="modal-toggle"></label>
+<div class="modal-content relative z-50 w-full max-w-sm bg-surface-modal rounded-2xl shadow-2xl border border-white/10 overflow-hidden">
+<div class="px-6 py-5 border-b border-white/5 flex items-center justify-between bg-white/5">
+<h2 class="font-display text-lg text-primary tracking-wide">About Missale</h2>
+<label class="cursor-pointer p-1 rounded-full hover:bg-white/10 text-text-secondary hover:text-white transition-colors" for="modal-toggle">
+<span class="material-symbols-outlined text-xl">close</span>
+</label>
+</div>
+<div class="p-6 space-y-6 max-h-[60vh] overflow-y-auto">
+<div class="text-center pb-4 border-b border-white/5">
+<div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-surface-dark border border-primary/20 mb-3">
+<span class="font-display text-primary text-xl font-bold">M</span>
+</div>
+<p class="text-text-primary font-medium">Missale Romanum</p>
+<p class="text-text-muted text-xs mt-1">Version 2.4.0 (Build 892)</p>
+</div>
+<div class="space-y-4">
+<div>
+<h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2">Development</h3>
+<p class="text-sm text-text-primary leading-relaxed">Created by the Guild of St. Genesius. Dedicated to preserving the liturgical heritage of the Church through technology.</p>
+</div>
+<div>
+<h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2">Texts &amp; Translation</h3>
+<p class="text-sm text-text-primary leading-relaxed">Latin texts from the 1962 Missale Romanum. English translations adapted from the Douay-Rheims Bible and the Lasance Missal.</p>
+</div>
+<div>
+<h3 class="text-xs font-bold text-text-secondary uppercase tracking-wider mb-2">Legal</h3>
+<p class="text-xs text-text-muted leading-relaxed">
+                            © 2023 Guild of St. Genesius. All rights reserved.<br/>
+                            Imprimatur for original texts remains with their respective ecclesiastical authorities.
+                        </p>
+</div>
+</div>
+<div class="pt-2 flex flex-col gap-2">
+<button class="w-full py-2.5 rounded-lg bg-surface-dark hover:bg-black/40 border border-white/10 text-sm text-text-secondary hover:text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">privacy_tip</span>
+                        Privacy Policy
+                    </button>
+<button class="w-full py-2.5 rounded-lg bg-surface-dark hover:bg-black/40 border border-white/10 text-sm text-text-secondary hover:text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-base">license</span>
+                        Open Source Licenses
+                    </button>
+</div>
+</div>
+<div class="bg-surface-dark/50 px-6 py-4 border-t border-white/5 text-center">
+<p class="text-[10px] text-text-muted">Soli Deo Gloria</p>
+</div>
+</div>
+</div>
+
+</body></html>

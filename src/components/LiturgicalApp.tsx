@@ -11,6 +11,8 @@ import { CalendarDashboard } from './CalendarDashboard';
 import { Journal } from './Journal';
 import { SaintsInfo } from './SaintsInfo';
 import { ParishDashboard } from './ParishDashboard';
+import { VersionStatusBar } from './ui/VersionStatusBar';
+import { getDisplayVersion } from '../core/utils/version';
 
 // Import storage service based on platform
 import { createStorageService } from '../platforms/storageFactory';
@@ -234,9 +236,12 @@ export const LiturgicalApp: React.FC<LiturgicalAppProps> = ({
           Copyright © 2025 Robin L. M. Cheung, MBA. All rights reserved.
         </Text>
         <Text style={styles.versionText}>
-          v1.0.0.{Math.floor(Date.now() / 1000)}
+          {getDisplayVersion()}
         </Text>
       </View>
+
+      {/* Version Status Bar (bottom-right) */}
+      <VersionStatusBar visible subtle />
     </View>
   );
 };

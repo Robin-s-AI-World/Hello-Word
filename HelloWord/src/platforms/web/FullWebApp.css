@@ -1,4 +1,4 @@
-/* SanctissiMissa - Sancta Nocte Design System */
+/* SanctissiMissa - Liturgical Design System */
 /* Tailwind CDN handles all styling. This file provides only animation keyframes. */
 
 @keyframes spin {
@@ -11,6 +11,11 @@
   50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 30px rgba(212, 175, 55, 0.4); }
 }
 
+@keyframes bounce-stagger {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
 .station-pulse {
   animation: pulse-glow 2s ease-in-out infinite;
 }
@@ -18,8 +23,63 @@
 .loading-spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgba(212, 175, 55, 0.2);
-  border-top: 3px solid #d4af37;
+  border: 3px solid rgba(17, 82, 212, 0.2);
+  border-top: 3px solid #1152d4;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+
+/* Bounce animation for loading dots with stagger */
+.animate-bounce-stagger-1 {
+  animation: bounce-stagger 1.4s infinite ease-in-out;
+}
+
+.animate-bounce-stagger-2 {
+  animation: bounce-stagger 1.4s infinite ease-in-out 0.2s;
+}
+
+.animate-bounce-stagger-3 {
+  animation: bounce-stagger 1.4s infinite ease-in-out 0.4s;
+}
+
+/* Drop cap styling */
+.drop-cap::first-letter {
+  float: left;
+  font-size: 3.5rem;
+  line-height: 0.7;
+  font-weight: 400;
+  margin-right: 0.1em;
+  margin-top: 0.1em;
+  color: #1152d4;
+}
+
+/* Timeline line gradient */
+.timeline-line-gradient {
+  background: linear-gradient(to bottom, #2d6a4f 0%, #2d6a4f 80%, rgba(45, 106, 79, 0) 100%);
+}
+
+/* Modal backdrop */
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Text glow effect */
+.text-glow {
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.3), 0 0 30px rgba(212, 175, 55, 0.1);
+}
+
+/* Safe area padding for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

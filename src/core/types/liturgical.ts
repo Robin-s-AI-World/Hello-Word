@@ -105,3 +105,111 @@ export interface CachedLiturgicalData {
   cachedAt: string;
   expiresAt: string;
 }
+
+// New types for 6 UI screens implementation
+
+export interface TextAnnotation {
+  id: string;
+  textId: string;
+  word: string;
+  position: number;
+  type: 'definition' | 'user';
+  definition?: string;
+  grammar?: string;
+  annotationType?: 'audio' | 'text' | 'drawing' | 'picture' | 'url';
+  content?: string;
+  mediaPath?: string;
+  createdAt: string;
+}
+
+export interface MassPart {
+  id: string;
+  key: string;
+  name: string;
+  latinName?: string;
+  section: 'catechumens' | 'faithful' | 'communion';
+  sequence: number;
+  type: 'ordinary' | 'proper';
+  nodeType: 'icon' | 'dot' | 'gold';
+  icon?: string;
+}
+
+export interface ConcordanceDay {
+  date: string;
+  displayDate: string;
+  dayOfWeek: string;
+  calendar1962: {
+    celebration: string;
+    rank: string;
+    color: string;
+  };
+  modernCalendar: {
+    celebration: string;
+    rank: string;
+    color: string;
+  };
+}
+
+export interface CommunityPost {
+  id: string;
+  parishId: string;
+  authorName: string;
+  authorAvatar?: string;
+  isAdmin: boolean;
+  content: string;
+  visibility: 'public' | 'private' | 'journal';
+  likesCount: number;
+  commentsCount: number;
+  createdAt: string;
+}
+
+export interface Announcement {
+  id: string;
+  title: string;
+  dateLabel: string;
+  timeLabel?: string;
+  imageUrl?: string;
+  category: string;
+  description?: string;
+}
+
+export interface WeeklyScheduleItem {
+  id: string;
+  title: string;
+  latinTitle?: string;
+  day: string;
+  time: string;
+  location: string;
+  iconName: string;
+  iconColor: string;
+}
+
+export interface MassBookmark {
+  id: string;
+  date: string;
+  massPartId: string;
+  note?: string;
+  createdAt: string;
+}
+
+export interface PostComment {
+  id: string;
+  postId: string;
+  authorName: string;
+  authorAvatar?: string;
+  content: string;
+  createdAt: string;
+}
+
+// Liturgical colors for theming
+export const LITURGICAL_COLORS = {
+  green: '#2d6a4f',
+  red: '#b91c1c',
+  white: '#f8f9fa',
+  violet: '#7209b7',
+  rose: '#f4c2c2',
+  gold: '#d4af37',
+  black: '#1a1a1a',
+} as const;
+
+export type LiturgicalColorName = keyof typeof LITURGICAL_COLORS;

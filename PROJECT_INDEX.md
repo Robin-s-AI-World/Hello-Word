@@ -1,14 +1,14 @@
 # Project Index: SanctissiMissa (Hello, Word)
 
-Generated: 2026-02-07
-Last Updated: 2026-02-07
+Generated: 2026-02-16
+Last Updated: 2026-02-16
 Author: Robin L. M. Cheung, MBA
 License: Copyright (C) 2025 - All rights reserved
 
 ## Project Structure
 
 ```
-Hello-Word-J/
+Hello-Word/
 ├── HelloWord/                  # React Native app (mobile + web entry)
 │   ├── App.tsx                 # RN app entry component
 │   ├── index.js                # RN native entry
@@ -18,25 +18,23 @@ Hello-Word-J/
 │   ├── src/
 │   │   ├── platforms/web/      # Web-specific RN components
 │   │   │   ├── main.tsx        # Web bootstrap
-│   │   │   ├── FullWebApp.tsx  # Full web app wrapper
-│   │   │   ├── WebLiturgicalApp.tsx
-│   │   │   ├── ActualLiturgicalApp.tsx
-│   │   │   └── RealDataApp.tsx
+│   │   │   └── ActualLiturgicalApp.tsx
 │   │   ├── core/
 │   │   │   ├── components/     # Core RN components (3 files)
 │   │   │   │   ├── AppBar.tsx
 │   │   │   │   ├── BottomNav.tsx
-│   │   │   │   └── Card.tsx    # ⚠️ Untracked - newly created
+│   │   │   │   └── Card.tsx
 │   │   │   └── theme/
 │   │   │       ├── ThemeProvider.tsx
 │   │   │       └── themeConfig.ts
-│   └── __tests__/              # Jest tests (2 files)
+│   │   └── __tests__/          # Jest tests (2 files)
 ├── src/                        # Shared core source
 │   ├── api/                    # API layer
 │   │   ├── liturgical.ts       # Native API client
 │   │   └── liturgical.web.ts   # Web API client
-│   ├── components/             # UI components (7 files)
+│   ├── components/             # UI components (8 files)
 │   │   ├── LiturgicalApp.tsx   # Main app component
+│   │   ├── DatabaseImportProgress.tsx
 │   │   ├── CalendarDashboard.tsx
 │   │   ├── LiturgicalCalendar.tsx
 │   │   ├── MassTexts.tsx
@@ -44,42 +42,47 @@ Hello-Word-J/
 │   │   ├── ParishDashboard.tsx
 │   │   └── Journal.tsx
 │   ├── core/
-│   │   ├── services/           # Business logic (7 files)
-│   │   │   ├── CalendarService.ts
-│   │   │   ├── DirectoriumService.ts
-│   │   │   ├── LiturgicalEngineService.ts
-│   │   │   ├── TextFileParserService.ts
-│   │   │   ├── TextParsingService.ts
-│   │   │   ├── dataManager.ts
-│   │   │   └── textService.ts
+│   │   ├── services/           # Business logic (8 files)
+│   │   │   ├── CalendarService.ts      # Kalendar parsing, date fetches
+│   │   │   ├── DirectoriumService.ts   # Transfer rules, temporal assignments
+│   │   │   ├── LiturgicalEngineService.ts  # Precedence/rank logic
+│   │   │   ├── LiturgicalDatabaseImporter.ts # DB import service
+│   │   │   ├── TextFileParserService.ts    # File format parsing
+│   │   │   ├── TextParsingService.ts       # Text structure parsing
+│   │   │   ├── dataManager.ts          # Data access layer
+│   │   │   └── textService.ts          # Liturgical text management
 │   │   ├── types/              # TypeScript types
 │   │   │   ├── liturgical.ts   # Core domain types
-│   │   │   └── services.ts     # Service interfaces
+│   │   │   └── services.ts    # Service interfaces
 │   │   └── utils/
-│   │       └── DateUtils.ts
+│   │       └── DateUtils.ts   # Date/liturgical calculations
 │   ├── platforms/              # Platform abstraction
-│   │   ├── storageFactory.ts   # Factory pattern
+│   │   ├── storageFactory.ts  # Factory pattern
 │   │   ├── web/
-│   │   │   ├── StorageService.ts
-│   │   │   └── webSqliteStorage.ts
+│   │   │   ├── StorageService.ts     # Dexie IndexedDB
+│   │   │   └── webSqliteStorage.ts   # sql.js WASM
 │   │   └── native/
-│   │       └── sqliteStorage.ts
+│   │       └── sqliteStorage.ts      # react-native-sqlite-storage
 │   └── shared/                 # Shared UI
 │       ├── components/Button/
-│       └── themes/             # Theme system (4 themes)
+│       └── themes/             # Theme system (5 themes)
 │           ├── ThemeProvider.tsx
 │           ├── base.ts
 │           ├── brutalist.ts
+│           ├── liquidGlass.ts
+│           ├── retro.ts
 │           └── skeuomorphic.ts
 ├── liturgical-api/             # Express.js backend API
 │   ├── server.js               # Express server entry
 │   ├── liturgical-engine.js    # Core liturgical calculation engine
 │   ├── setup-database.js       # DB initialization
 │   └── test-api.js             # API tests
-├── src-tauri/                  # Tauri desktop wrapper
-│   ├── src/main.rs             # Rust entry
+├── src-tauri/                  # Tauri 2.x desktop wrapper
+│   ├── src/
+│   │   ├── main.rs             # Rust entry
+│   │   └── lib.rs              # Tauri commands (greet)
 │   ├── Cargo.toml
-│   └── tauri.conf.json
+│   └── tauri.conf.json         # App config: SanctissiMissa
 ├── public/                     # Static web assets
 │   ├── service-worker.js       # PWA service worker
 │   ├── sw.js                   # Workbox SW
@@ -100,6 +103,11 @@ Hello-Word-J/
 │   ├── Planning/               # PRD, conventions, features
 │   ├── checklists/             # Session checklists
 │   └── Examples/               # Reference HTML examples
+├── docs/                       # Additional docs
+│   ├── analysis/               # Code analysis reports
+│   ├── architecture/           # API specs
+│   ├── checklists/             # More checklists
+│   └── hkg/                    # HKG installation docs
 ├── test-output/                # Generated test reports
 ├── index.html                  # Root web entry
 ├── vite.config.ts              # Root Vite config
@@ -110,61 +118,72 @@ Hello-Word-J/
 
 ## Entry Points
 
-- **Web (Vite)**: `index.html` → `HelloWord/src/platforms/web/main.tsx`
-- **React Native**: `HelloWord/index.js` (native) / `HelloWord/index.web.js` (web)
-- **Tauri Desktop**: `src-tauri/src/main.rs` wrapping web build
-- **Liturgical API**: `liturgical-api/server.js` (Express on Node.js)
-- **Tests**: `HelloWord/__tests__/App.test.tsx`, `HelloWord/__tests__/integration.test.ts`
+| Platform | Entry File | Description |
+|----------|------------|-------------|
+| Web (Vite) | `index.html` | Root web entry via Vite |
+| React Native | `HelloWord/index.js` | Native mobile entry |
+| RN Web | `HelloWord/index.web.js` | React Native Web entry |
+| Tauri Desktop | `src-tauri/src/main.rs` | Rust → sanctissimissa::run() |
+| Liturgical API | `liturgical-api/server.js` | Express.js HTTP API |
+| Tests | `HelloWord/__tests__/` | Jest unit/integration tests |
 
 ## Core Modules
 
-### CalendarService (`src/core/services/CalendarService.ts`)
-- Liturgical calendar calculations (Easter, seasons, moveable feasts)
+### Services (`src/core/services/`)
 
-### DirectoriumService (`src/core/services/DirectoriumService.ts`)
-- Transfer rules and temporal assignments for liturgical days
+| Service | Purpose |
+|---------|---------|
+| **CalendarService** | Fetches/parses Kalendar files from Divinum Officium GitHub |
+| **DirectoriumService** | Transfer rules and temporal assignments |
+| **LiturgicalEngineService** | Precedence/rank logic for feast/feria resolution |
+| **LiturgicalDatabaseImporter** | Imports Divinum Officium database |
+| **TextFileParserService** | Parses DO-format text files |
+| **TextParsingService** | Structures liturgical text components |
+| **dataManager** | Data access layer, coordinates storage |
+| **textService** | Liturgical text management and lookup |
 
-### LiturgicalEngineService (`src/core/services/LiturgicalEngineService.ts`)
-- Precedence and rank logic for feast/feria resolution
+### Types (`src/core/types/liturgical.ts`)
 
-### TextFileParserService / TextParsingService (`src/core/services/`)
-- Parse Divinum Officium-format text files into structured data
+Key interfaces:
+- `LiturgicalSeason` enum (ADVENT, CHRISTMASTIDE, SEPTUAGESIMA, LENT, PASCHALTIDE, TIME_AFTER_PENTECOST)
+- `BilingualText` - Latin/English text pairs
+- `LiturgicalDay` - Calendar day info with rank, color, commemorations
+- `VoiceNote` - Audio recording metadata
+- `JournalEntry` - Personal journal entries
+- `SaintInfo` / `MartyrologicalEntry` - Saint information
+- `ParishInfo` / `ParishEvent` / `Newsletter` - Parish data
+- `CachedLiturgicalData` - Cached liturgical content
 
-### dataManager (`src/core/services/dataManager.ts`)
-- Data access layer, coordinates storage and text retrieval
+### Platform Abstraction (`src/platforms/`)
 
-### textService (`src/core/services/textService.ts`)
-- Liturgical text management and lookup
+```
+storageFactory.ts
+├── isBrowser? → WebStorageService (Dexie + IndexedDB)
+└── native → NativeStorageService (react-native-sqlite-storage)
+```
 
-### liturgical-engine (`liturgical-api/liturgical-engine.js`)
-- Server-side calculation engine for the HTTP API
+### Theme System (`src/shared/themes/`)
 
-## Type System (`src/core/types/liturgical.ts`)
-
-Key types: `LiturgicalSeason`, `BilingualText`, `LiturgicalDay`, `VoiceNote`, `LiturgicalRank`
-
-## Platform Abstraction
-
-- **Factory**: `src/platforms/storageFactory.ts`
-- **Web**: IndexedDB via Dexie + sql.js WASM
-- **Native**: react-native-sqlite-storage
-
-## Theme System (`src/shared/themes/`)
-
-Three themes: base, brutalist, skeuomorphic. `ThemeProvider.tsx` manages theme context.
+5 themes available:
+- `base.ts` - Default theme
+- `brutalist.ts` - Brutalist design
+- `liquidGlass.ts` - Glass morphism
+- `retro.ts` - Retro styling
+- `skeuomorphic.ts` - Skeuomorphic design
 
 ## Configuration
 
 | File | Purpose |
 |------|---------|
-| `vite.config.ts` | Root Vite build (web) |
-| `HelloWord/vite.config.ts` | HelloWord Vite config |
+| `package.json` (root) | Root dependencies, Tauri scripts |
+| `HelloWord/package.json` | React Native dependencies |
+| `liturgical-api/package.json` | Express API dependencies |
+| `vite.config.ts` | Vite bundler config |
 | `tsconfig.json` | TypeScript compiler options |
 | `tailwind.config.js` | TailwindCSS/NativeWind |
-| `workbox-config.js` | PWA service worker generation |
-| `src-tauri/tauri.conf.json` | Tauri desktop config |
-| `HelloWord/app.json` | React Native app config |
-| `.github/workflows/` | CI: claude-code-review, claude |
+| `workbox-config.js` | PWA service worker config |
+| `src-tauri/tauri.conf.json` | Tauri 2.x desktop config |
+| `src-tauri/Cargo.toml` | Rust dependencies |
 
 ## Key Dependencies
 
@@ -175,76 +194,79 @@ Three themes: base, brutalist, skeuomorphic. `ThemeProvider.tsx` manages theme c
 | react-native-web | ^0.20.0 | Web compatibility |
 | vite | ^5/^6 | Web bundler |
 | dexie | ^4.0.11 | IndexedDB wrapper |
-| sql.js | ^1.13.0 | Browser SQLite |
+| sql.js | ^1.13.0 | Browser SQLite (WASM) |
 | sqlite3 | ^5.1.7 | Native SQLite |
-| nativewind | ^4.1.23 | TailwindCSS for RN |
 | express | ^4.18.2 | API server |
-| @tauri-apps/cli | ^1.5.0 | Desktop builds |
+| @tauri-apps/cli | ^2.10.0 | Desktop builds |
 
 ## Quick Start
 
 ```bash
 # Web development (from root)
-npm run dev           # Vite dev server
+npm run dev                    # Vite dev server at :5173
+npm run build                  # Production build
 
-# React Native
-cd HelloWord && npm start     # Metro bundler
-cd HelloWord && npm run ios   # iOS simulator
+# React Native (from HelloWord/)
+cd HelloWord && npm start      # Metro bundler
+cd HelloWord && npm run ios    # iOS simulator
 cd HelloWord && npm run android # Android
 
 # Liturgical API
-cd liturgical-api && npm run dev  # Express API with nodemon
+cd liturgical-api && npm start # Express API (port 3000)
 
-# Build
-npm run build         # Vite production build
-npm run tauri:build   # Desktop build
-npm run pwa:build     # PWA build
+# Tauri Desktop
+npm run tauri:dev              # Dev with hot reload
+npm run tauri:build            # Production build
 
-# Test
-cd HelloWord && npm test   # Jest tests
+# Testing
+cd HelloWord && npm test       # Jest tests
 ```
 
 ## Documentation Map
 
 | Document | Topic |
 |----------|-------|
+| `CLAUDE.md` | Claude Code instructions & constraints |
 | `ARCHITECTURE.md` | System architecture overview |
-| `ARCHITECTURE-DYNAMIC-LITURGICAL-CALENDAR.md` | Dynamic calendar engine design |
-| `ARCHITECTURE-YEAR-AGNOSTIC-LITURGICAL-ENGINE.md` | Year-agnostic engine approach |
+| `ARCHITECTURE-DYNAMIC-LITURGICAL-CALENDAR.md` | Dynamic calendar design |
+| `ARCHITECTURE-YEAR-AGNOSTIC-LITURGICAL-ENGINE.md` | Year-agnostic engine |
 | `ROADMAP.md` | Feature roadmap |
-| `BREVIARIUM_MISSALE_COMPLETION_PLAN.md` | Breviary/Missal completion plan |
-| `COMPREHENSIVE_SCHEMA_DOCUMENTATION.md` | Database schema docs |
-| `COMPLETE_SYSTEM_IMPLEMENTATION.md` | Full system implementation guide |
-| `RESUME_NOTES_27JUN2025.md` | Session resume notes |
-| `Docs/Planning/SanctissiMissa_Project_Overview.md` | Project overview PRD |
-| `liturgical-api/LITURGICAL_API_DOCUMENTATION.md` | API documentation |
+| `COMPREHENSIVE_SCHEMA_DOCUMENTATION.md` | Database schema |
+| `liturgical-api/LITURGICAL_API_DOCUMENTATION.md` | API reference |
 | `liturgical-api/HYBRID_KNOWLEDGE_GRAPH_DOCUMENTATION.md` | HKG architecture |
 
 ## File Counts
 
-- Source (TypeScript/TSX): 31 files
-- Services: 7 files
-- Components: 7 files
-- Tests: 2 files
-- Documentation (MD): ~70 files (excluding node_modules)
-- Data (JSON): 10 files
+| Category | Count |
+|----------|-------|
+| Source (TS/TSX) | ~35 files |
+| Services | 8 files |
+| Components | 11 files |
+| Tests | 2 files |
+| Rust (Tauri) | 2 files |
+| JS (liturgical-api) | 4 files |
+| Documentation (MD) | ~80 files |
+| Data (JSON) | 10 files |
 
-## Known Issues & Notes
+## Known Issues
 
-⚠️ **Merge Conflicts**: `src/core/types/liturgical.ts` has unresolved conflicts
-⚠️ **Untracked Files**:
-  - `HelloWord/src/core/components/Card.tsx` (newly created, not in git)
-  - `HelloWordJ-7feb2026-12h30-session-ses_3cd1.md` (session file)
-
-⚠️ **CLI Missing**: Report command missing in main() switch statement (see CLAUDE.md)
+| Issue | Location | Notes |
+|-------|----------|-------|
+| Merge conflicts | `src/core/types/liturgical.ts` | Unresolved |
+| CLI missing | Report command | See CLAUDE.md for fix |
 
 ## Development Constraints
 
-- **NO placeholder data** - calculate on-demand, cache only what's used
-- **Match divinumofficium.com exactly** - any mismatch is a blocker
-- **Clean room implementation** - no direct copying from reference
-- **Offline-first architecture** with SQLite/IndexedDB storage
+- **NO placeholder data** - Calculate on-demand, cache only what's used
+- **Match divinumofficium.com exactly** - Any mismatch is a blocker
+- **Clean room implementation** - No direct copying from reference
+- **Offline-first architecture** - SQLite/IndexedDB storage
+- **Tauri 2.x** - Desktop builds use Tauri 2.10+
 
 ## Token Efficiency
 
-**Reading this index**: ~3K tokens vs full codebase (~58K tokens) = **94% reduction**
+**Reading this index**: ~3K tokens vs full codebase (~60K tokens) = **95% reduction**
+
+---
+
+*This index is auto-generated. Update when project structure changes significantly.*

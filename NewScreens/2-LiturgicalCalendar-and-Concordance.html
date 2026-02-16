@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Liturgical Calendar Concordance</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1152d4",
+                        "background-light": "#f2f2f7", // iOS grouped background style
+                        "background-dark": "#000000",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c1c1e",
+                        "liturgical-green": "#2d6a4f",
+                        "liturgical-green-light": "#e8f5e9",
+                        "liturgical-green-dark": "#1b4d3e",
+                        "liturgical-red": "#c1121f",
+                        "liturgical-red-light": "#fce4e6",
+                        "liturgical-red-dark": "#8a0b14",
+                        "liturgical-white": "#f8f9fa",
+                        "liturgical-white-dark": "#e9ecef",
+                        "liturgical-violet": "#7209b7",
+                        "liturgical-violet-light": "#f3e5f5",
+                        "liturgical-violet-dark": "#4a0578",
+                        "liturgical-gold": "#cca43b",
+                    },
+                    fontFamily: {
+                        "serif": ["Noto Serif", "serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    animation: {
+                        'ping-slow': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }#info-modal {
+            transition: opacity 0.3s ease-in-out;
+        }
+        #info-modal.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        #info-modal:not(.hidden) {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-sans antialiased h-screen flex flex-col overflow-hidden text-gray-900 dark:text-gray-100">
+<div class="flex-none bg-surface-light dark:bg-surface-dark border-b border-gray-200 dark:border-gray-800 pt-12 pb-3 px-4 shadow-sm z-30">
+<div class="flex items-center justify-between">
+<button class="flex items-center text-primary dark:text-blue-400 -ml-2">
+<span class="material-symbols-outlined text-3xl">chevron_left</span>
+<span class="text-base font-medium">Missal</span>
+</button>
+<h1 class="text-lg font-bold font-serif tracking-tight">Calendar Concordance</h1>
+<button class="text-primary dark:text-blue-400">
+<span class="material-symbols-outlined text-2xl">calendar_month</span>
+</button>
+</div>
+<div class="mt-4 bg-gray-200 dark:bg-gray-800 p-0.5 rounded-lg flex text-[13px] font-medium">
+<button class="flex-1 py-1.5 rounded-md text-gray-500 dark:text-gray-400">1962</button>
+<button class="flex-1 py-1.5 rounded-md bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white">Concordance</button>
+<button class="flex-1 py-1.5 rounded-md text-gray-500 dark:text-gray-400">Novus Ordo</button>
+</div>
+</div>
+<div class="flex-none bg-background-light dark:bg-background-dark px-4 py-3 flex items-center justify-between">
+<button class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-500">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<h2 class="text-lg font-serif font-semibold text-gray-800 dark:text-white">June 2024</h2>
+<button class="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 text-gray-500">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<main class="flex-1 overflow-y-auto no-scrollbar px-4 pb-24 space-y-4">
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<div class="flex items-center gap-2">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Sun, Jun 16</span>
+<button class="relative flex h-5 w-5 items-center justify-center" onclick="document.getElementById('info-modal').classList.remove('hidden')">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75 dark:bg-blue-400"></span>
+<span class="relative inline-flex rounded-full h-4 w-4 bg-primary dark:bg-blue-500 items-center justify-center text-[10px] text-white font-bold">?</span>
+</button>
+</div>
+<span class="material-symbols-outlined text-gray-300 text-sm">wb_sunny</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">4th Sunday after Pentecost</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">II Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">11th Sunday in Ordinary Time</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">Sunday</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Mon, Jun 17</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Gregory Barbarigo</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">III Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">Monday of the 11th Week in Ordinary Time</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">Weekday</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Tue, Jun 18</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Ephrem the Syrian</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">III Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">Tuesday of the 11th Week in Ordinary Time</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">Weekday</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Wed, Jun 19</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Juliana Falconieri</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">III Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Romuald</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">Optional Memorial</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Thu, Jun 20</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">Feria of the IV Class</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">IV Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-green"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">Thursday of the 11th Week in Ordinary Time</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-300">Weekday</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Fri, Jun 21</span>
+<span class="material-symbols-outlined text-gray-300 text-sm">water_drop</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Aloysius Gonzaga</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">III Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Aloysius Gonzaga</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">Memorial</span>
+</div>
+</div>
+</div>
+</div>
+<div class="rounded-xl bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden border border-gray-100 dark:border-gray-800">
+<div class="px-4 py-2 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-100 dark:border-gray-800 flex justify-between items-center">
+<span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Sat, Jun 22</span>
+</div>
+<div class="flex divide-x divide-gray-100 dark:divide-gray-800">
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 left-0 bottom-0 w-1 bg-liturgical-white dark:bg-gray-400"></div>
+<div class="pl-2">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">1962</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">St. Paulinus of Nola</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-gray-100 text-gray-600 dark:bg-gray-800 dark:text-gray-300">III Class</span>
+</div>
+</div>
+<div class="flex-1 p-3 relative cursor-pointer active:bg-gray-50 dark:active:bg-gray-800 transition-colors">
+<div class="absolute top-0 right-0 bottom-0 w-1 bg-liturgical-red"></div>
+<div class="pr-2 text-right">
+<span class="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Modern</span>
+<h3 class="font-serif font-medium leading-tight text-sm mb-1 text-gray-900 dark:text-white">Sts. John Fisher &amp; Thomas More</h3>
+<span class="inline-block px-1.5 py-0.5 rounded text-[10px] font-medium bg-red-100 text-red-800 dark:bg-red-900/30 dark:text-red-300">Optional Memorial</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<div class="flex-none bg-surface-light dark:bg-surface-dark border-t border-gray-200 dark:border-gray-800 pb-6 pt-2 z-30">
+<div class="grid grid-cols-4 h-12">
+<button class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-blue-400 transition-colors">
+<span class="material-symbols-outlined text-2xl mb-0.5">home</span>
+<span class="text-[10px] font-medium">Home</span>
+</button>
+<button class="flex flex-col items-center justify-center text-primary dark:text-blue-400 transition-colors">
+<span class="material-symbols-outlined text-2xl mb-0.5 filled">calendar_today</span>
+<span class="text-[10px] font-medium">Calendar</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-blue-400 transition-colors">
+<span class="material-symbols-outlined text-2xl mb-0.5">menu_book</span>
+<span class="text-[10px] font-medium">Missal</span>
+</button>
+<button class="flex flex-col items-center justify-center text-gray-400 dark:text-gray-500 hover:text-primary dark:hover:text-blue-400 transition-colors">
+<span class="material-symbols-outlined text-2xl mb-0.5">settings</span>
+<span class="text-[10px] font-medium">Settings</span>
+</button>
+</div>
+</div>
+<div class="fixed inset-0 z-50 flex items-center justify-center px-4 hidden" id="info-modal">
+<div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onclick="document.getElementById('info-modal').classList.add('hidden')"></div>
+<div class="relative bg-surface-light dark:bg-surface-dark rounded-2xl shadow-2xl max-w-sm w-full max-h-[80vh] overflow-y-auto border border-gray-200 dark:border-gray-700 animate-in fade-in zoom-in duration-200">
+<div class="sticky top-0 z-10 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-md px-5 py-4 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
+<h3 class="text-lg font-serif font-bold text-primary dark:text-blue-400 flex items-center gap-2">
+<span class="material-symbols-outlined text-xl">school</span>
+                Did You Know?
+            </h3>
+<button class="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors" onclick="document.getElementById('info-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="px-5 py-5 space-y-6">
+<div class="space-y-2">
+<p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">The Algorithm</p>
+<h4 class="text-xl font-bold text-gray-900 dark:text-white leading-tight">Calculating the Movable Feast</h4>
+<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    Easter is the anchor for the entire liturgical year. But how is it determined? It follows the rule established at the Council of Nicaea (325 AD): the first Sunday after the first full moon occurring on or after the vernal equinox.
+                </p>
+</div>
+<div class="bg-gray-50 dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
+<div class="flex items-start gap-3 mb-2">
+<span class="material-symbols-outlined text-liturgical-violet dark:text-purple-400">calculate</span>
+<h5 class="font-serif font-bold text-gray-900 dark:text-white">Butcher's Algorithm</h5>
+</div>
+<p class="text-xs leading-relaxed text-gray-600 dark:text-gray-400 mb-3">
+                    Published by <span class="font-semibold text-gray-800 dark:text-gray-200">Samuel Butcher</span> in <span class="font-mono text-primary dark:text-blue-400">1877</span> in the <i>Ecclesiastical Calendar</i>. It is an ingenious "computus" that determines the date of Easter for any year in the Gregorian calendar without needing astronomical tables.
+                </p>
+<div class="bg-white dark:bg-gray-900/50 rounded-lg p-3 text-xs font-mono text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 overflow-x-auto">
+<code>
+                        a = year % 19<br/>
+                        b = year // 100<br/>
+                        c = year % 100<br/>
+                        ...<br/>
+<span class="text-primary dark:text-blue-400">// Returns Easter Month &amp; Day</span>
+</code>
+</div>
+</div>
+<div class="space-y-2">
+<p class="text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">Accuracy &amp; Legacy</p>
+<p class="text-sm leading-relaxed text-gray-600 dark:text-gray-300">
+                    This mathematical method elegantly reconciles the solar year (365.2425 days) with the lunar cycles (29.53 days). While astronomical full moons may vary slightly by timezone, Butcher's Algorithm provides the canonical Ecclesiastical Full Moon used by the Church worldwide.
+                </p>
+</div>
+<div class="relative overflow-hidden rounded-xl bg-gradient-to-br from-indigo-900 to-purple-900 p-4 shadow-lg text-white">
+<div class="absolute -right-4 -top-4 h-24 w-24 rounded-full bg-blue-500 opacity-20 blur-2xl"></div>
+<div class="relative z-10 flex items-center gap-3">
+<span class="material-symbols-outlined text-yellow-300 animate-pulse">light_mode</span>
+<div>
+<h6 class="font-bold text-xs uppercase tracking-wider text-blue-200">Sancta Nocte Fact</h6>
+<p class="text-xs font-medium text-white/90 mt-0.5">There are 35 possible dates for Easter, ranging from March 22 to April 25.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="p-4 border-t border-gray-100 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 rounded-b-2xl">
+<button class="w-full py-2.5 bg-primary dark:bg-blue-600 text-white rounded-lg font-medium text-sm shadow-sm hover:bg-blue-700 active:scale-[0.98] transition-all" onclick="document.getElementById('info-modal').classList.add('hidden')">
+                Understood
+            </button>
+</div>
+</div>
+</div>
+</body></html>

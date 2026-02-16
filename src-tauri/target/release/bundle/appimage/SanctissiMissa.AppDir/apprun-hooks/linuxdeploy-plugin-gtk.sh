@@ -14,3 +14,5 @@ export GTK_PATH="$APPDIR//usr/lib/x86_64-linux-gnu/gtk-3.0:/usr/lib64/gtk-3.0:/u
 export GTK_IM_MODULE_FILE="$APPDIR//usr/lib/x86_64-linux-gnu/gtk-3.0/3.0.0/immodules.cache"
 
 export GDK_PIXBUF_MODULE_FILE="$APPDIR//usr/lib/x86_64-linux-gnu/gdk-pixbuf-2.0/2.10.0/loaders.cache"
+export GIO_EXTRA_MODULES="$APPDIR/usr/lib/x86_64-linux-gnu/gio/modules
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/bundle/appimage/SanctissiMissa.AppDir/usr/lib/i386-linux-gnu/gio/modules"

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Butcher's Algorithm Deep Dive</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d4af37","background-dark": "#05080f","surface-dark": "#111620",
+                        "surface-highlight": "#1a2233",
+                        "liturgical-gold": "#d4af37",
+                        "neon-gold": "#ffd700",
+                        "text-secondary": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Noto Serif", "serif"],
+                        "sans": ["Inter", "sans-serif"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "monospace"],
+                    },
+                    boxShadow: {
+                        "neon": "0 0 10px rgba(212, 175, 55, 0.5), 0 0 20px rgba(212, 175, 55, 0.3)",
+                        "inner-glow": "inset 0 0 20px rgba(212, 175, 55, 0.05)",
+                    }
+                },
+            },
+        }
+    </script>
+<style>.no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }.text-neon {
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+        }
+        .math-symbol {
+            font-family: 'Noto Serif', serif;
+            font-style: italic;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-dark text-gray-200 font-sans antialiased min-h-screen flex flex-col overflow-hidden selection:bg-liturgical-gold selection:text-black">
+<div class="relative z-20 flex items-center bg-background-dark/80 backdrop-blur-md p-4 justify-between border-b border-white/10 sticky top-0">
+<button class="text-white/70 hover:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined">expand_more</span>
+</button>
+<div class="flex flex-col items-center">
+<span class="text-[10px] font-bold tracking-[0.2em] text-liturgical-gold uppercase">Did You Know?</span>
+<h2 class="text-white text-sm font-semibold tracking-wide">Computus Ecclesiasticus</h2>
+</div>
+<button class="flex size-10 items-center justify-center rounded-full hover:bg-white/5 transition-colors text-white/70">
+<span class="material-symbols-outlined">share</span>
+</button>
+</div>
+<main class="flex-1 overflow-y-auto no-scrollbar relative pb-12">
+<div class="px-6 pt-8 pb-6 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-64 h-64 bg-liturgical-gold/5 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+<h1 class="font-display text-4xl font-bold text-white mb-3 leading-tight">
+                Butcher's <br/>
+<span class="text-liturgical-gold text-neon">Algorithm</span>
+</h1>
+<p class="text-text-secondary text-sm leading-relaxed max-w-prose">
+                A sophisticated computational method devised to calculate the date of Easter for any year in the Gregorian calendar without the need for tabular references.
+            </p>
+</div>
+<div class="px-6 mb-10">
+<div class="bg-surface-dark border border-white/10 rounded-xl overflow-hidden shadow-lg relative group">
+<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10 pointer-events-none"></div>
+<div class="flex flex-row">
+<div class="w-24 shrink-0 relative z-0">
+<img alt="Samuel Butcher Portrait" class="h-full w-full object-cover opacity-60 grayscale mix-blend-overlay group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBzXY7eJRaqz9tc0KM9L6t5T-Cy2CJBJzYtn_fU173uD0PQYXKJ9lNqGpdWZ8upHPnROCa0EbRIB-_mBsa46tksXu5ZMxdhNKaSL1bH8SyXrzOJ6Mdc4h7KbEdvAAPmCWx3Q2lxabV5JbcMeqcgR1aygmu1q8l2wvv0BoTdDZ66z2QZsCwxnu0wpNzjyaKmd5_RPYB5lmAftvlw958E6GbqWCzWDDdr0bKRuGYa5alEmHiVTNXBda6VQgDkG1R4Qr479B6dhnYVKJRv"/>
+</div>
+<div class="p-4 relative z-20 flex-1">
+<div class="flex items-center gap-2 mb-1">
+<h3 class="font-display font-bold text-lg text-white">Samuel Butcher</h3>
+<span class="px-1.5 py-0.5 rounded text-[10px] font-bold bg-liturgical-gold/20 text-liturgical-gold border border-liturgical-gold/30">1877</span>
+</div>
+<p class="text-xs text-liturgical-gold/80 mb-2 uppercase tracking-wide">Bishop of Meath</p>
+<p class="text-xs text-gray-400 leading-relaxed">
+                            Published posthumously in <span class="italic">The Ecclesiastical Calendar</span>, his algorithm solved the complexities of the lunisolar calendar with mathematical elegance.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="px-6">
+<div class="flex items-center gap-3 mb-6">
+<div class="h-px bg-gradient-to-r from-transparent via-liturgical-gold/50 to-transparent flex-1"></div>
+<h3 class="font-display text-xl text-white text-center">The Mechanics</h3>
+<div class="h-px bg-gradient-to-r from-transparent via-liturgical-gold/50 to-transparent flex-1"></div>
+</div>
+<div class="space-y-6 relative">
+<div class="absolute left-[19px] top-4 bottom-4 w-[2px] bg-gradient-to-b from-liturgical-gold/40 via-liturgical-gold/20 to-transparent"></div>
+<div class="relative pl-12 group">
+<div class="absolute left-0 top-1 w-10 h-10 rounded-full bg-surface-dark border border-liturgical-gold flex items-center justify-center shadow-neon z-10">
+<span class="font-mono text-sm text-liturgical-gold font-bold">I</span>
+</div>
+<div class="bg-surface-dark/50 border border-white/5 rounded-lg p-4 hover:bg-surface-dark transition-colors hover:border-liturgical-gold/30">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-white font-medium">The Golden Number</h4>
+<span class="material-symbols-outlined text-liturgical-gold/50 text-lg">dark_mode</span>
+</div>
+<p class="text-xs text-text-secondary mb-3">
+                            Determines the year's position in the 19-year Metonic lunar cycle.
+                        </p>
+<div class="bg-black/40 rounded border border-white/5 p-2 flex justify-between items-center font-mono text-xs">
+<span class="text-gray-500"><span class="math-symbol text-gray-300">n</span> = (Year % 19) + 1</span>
+<span class="text-liturgical-gold font-bold">Cycle</span>
+</div>
+</div>
+</div>
+<div class="relative pl-12 group">
+<div class="absolute left-1 top-3 w-8 h-8 rounded-full bg-surface-dark border border-white/20 flex items-center justify-center z-10 group-hover:border-liturgical-gold transition-colors">
+<span class="font-mono text-xs text-gray-400 group-hover:text-liturgical-gold">II</span>
+</div>
+<div class="bg-surface-dark/50 border border-white/5 rounded-lg p-4 hover:bg-surface-dark transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-white font-medium">The Epact</h4>
+<span class="material-symbols-outlined text-liturgical-gold/50 text-lg">bedtime</span>
+</div>
+<p class="text-xs text-text-secondary mb-3">
+                            Calculates the age of the moon on January 1st, adjusting for the solar equation.
+                        </p>
+<div class="flex gap-2 text-[10px] text-gray-400 font-mono">
+<span class="px-2 py-1 bg-white/5 rounded">Solar Correction</span>
+<span class="px-2 py-1 bg-white/5 rounded">Lunar Correction</span>
+</div>
+</div>
+</div>
+<div class="relative pl-12 group">
+<div class="absolute left-1 top-3 w-8 h-8 rounded-full bg-surface-dark border border-white/20 flex items-center justify-center z-10 group-hover:border-liturgical-gold transition-colors">
+<span class="font-mono text-xs text-gray-400 group-hover:text-liturgical-gold">III</span>
+</div>
+<div class="bg-surface-dark/50 border border-white/5 rounded-lg p-4 hover:bg-surface-dark transition-colors">
+<h4 class="text-white font-medium mb-1">Paschal Full Moon</h4>
+<p class="text-xs text-text-secondary mb-3">
+                            Identifies the date of the first full moon occurring on or after the vernal equinox (March 21).
+                        </p>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-liturgical-gold w-3/4 shadow-[0_0_10px_#d4af37]"></div>
+</div>
+</div>
+</div>
+<div class="relative pl-12 group">
+<div class="absolute left-1 top-3 w-8 h-8 rounded-full bg-surface-dark border border-white/20 flex items-center justify-center z-10 group-hover:border-liturgical-gold transition-colors">
+<span class="font-mono text-xs text-gray-400 group-hover:text-liturgical-gold">IV</span>
+</div>
+<div class="bg-surface-dark/50 border border-white/5 rounded-lg p-4 hover:bg-surface-dark transition-colors">
+<div class="flex justify-between items-start mb-2">
+<h4 class="text-white font-medium">Dominical Letter</h4>
+<span class="material-symbols-outlined text-liturgical-gold/50 text-lg">calendar_month</span>
+</div>
+<p class="text-xs text-text-secondary">
+                            Finds the date of the first Sunday following the Paschal Full Moon.
+                        </p>
+</div>
+</div>
+</div>
+</div>
+<div class="mx-6 mt-10 p-1 rounded-2xl bg-gradient-to-br from-liturgical-gold/40 via-transparent to-transparent">
+<div class="bg-surface-highlight rounded-xl p-5 border border-white/5 relative overflow-hidden">
+<div class="absolute -right-4 -top-4 text-liturgical-gold/5">
+<span class="material-symbols-outlined text-[120px]">functions</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-2 mb-3">
+<span class="material-symbols-outlined text-neon-gold text-2xl">auto_awesome</span>
+<h3 class="text-white font-display font-bold text-lg">Gregorian Precision</h3>
+</div>
+<p class="text-sm text-gray-300 leading-relaxed">
+                        Unlike earlier Julian methods, Butcher's algorithm perfectly accounts for the <span class="text-liturgical-gold">leap year exceptions</span> (years divisible by 100 but not 400), ensuring the liturgical calendar remains in sync with the solar year for millennia.
+                    </p>
+</div>
+</div>
+</div>
+<div class="px-8 py-8 text-center opacity-60">
+<p class="font-display italic text-xs text-gray-500">
+                "Computus est scientia de tempore."
+            </p>
+</div>
+</main>
+<div class="absolute bottom-6 right-6 z-30">
+<button class="flex items-center justify-center w-12 h-12 bg-liturgical-gold text-black rounded-full shadow-neon hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-[24px]">calculate</span>
+</button>
+</div>
+
+</body></html>

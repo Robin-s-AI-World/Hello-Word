@@ -4,17 +4,24 @@ import { CalendarService, KalendarDayInfo } from './CalendarService';
 import { LiturgicalTextPart } from './TextParsingService';
 import { DirectoriumService } from './DirectoriumService';
 import { LiturgicalEngineService, OfficeComponentPaths } from './LiturgicalEngineService';
-import { 
-  CachedLiturgicalData, 
-  JournalEntry, 
-  SaintInfo, 
+import {
+  CachedLiturgicalData,
+  JournalEntry,
+  SaintInfo,
   MartyrologicalEntry,
   ParishInfo,
   ParishEvent,
   Newsletter,
   BilingualText,
   LiturgicalDay,
-  VoiceNote
+  VoiceNote,
+  // New types for 6 UI screens
+  TextAnnotation,
+  MassBookmark,
+  CommunityPost,
+  PostComment,
+  Announcement,
+  ConcordanceDay,
 } from '../types/liturgical';
 
 const CREATE_CALENDAR_DAYS_TABLE = `
@@ -141,6 +148,79 @@ CREATE TABLE IF NOT EXISTS user_settings (
   updated_at TEXT NOT NULL
 );`;
 
+// New tables for 6 UI screens implementation
+const CREATE_TEXT_ANNOTATIONS_TABLE = `
+CREATE TABLE IF NOT EXISTS text_annotations (
+  id TEXT PRIMARY KEY NOT NULL,
+  text_id TEXT NOT NULL,
+  word TEXT NOT NULL,
+  position INTEGER NOT NULL,
+  type TEXT NOT NULL,
+  definition TEXT,
+  grammar TEXT,
+  annotation_type TEXT,
+  content TEXT,
+  media_path TEXT,
+  created_at TEXT NOT NULL
+);`;
+
+const CREATE_MASS_BOOKMARKS_TABLE = `
+CREATE TABLE IF NOT EXISTS mass_bookmarks (
+  id TEXT PRIMARY KEY NOT NULL,
+  date TEXT NOT NULL,
+  mass_part_id TEXT NOT NULL,
+  note TEXT,
+  created_at TEXT NOT NULL
+);`;
+
+const CREATE_COMMUNITY_POSTS_TABLE = `
+CREATE TABLE IF NOT EXISTS community_posts (
+  id TEXT PRIMARY KEY NOT NULL,
+  parish_id TEXT NOT NULL,
+  author_name TEXT NOT NULL,
+  author_avatar TEXT,
+  is_admin BOOLEAN DEFAULT 0,
+  content TEXT NOT NULL,
+  visibility TEXT NOT NULL,
+  likes_count INTEGER DEFAULT 0,
+  comments_count INTEGER DEFAULT 0,
+  created_at TEXT NOT NULL
+);`;
+
+const CREATE_POST_COMMENTS_TABLE = `
+CREATE TABLE IF NOT EXISTS post_comments (
+  id TEXT PRIMARY KEY NOT NULL,
+  post_id TEXT NOT NULL,
+  author_name TEXT NOT NULL,
+  author_avatar TEXT,
+  content TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY (post_id) REFERENCES community_posts(id)
+);`;
+
+const CREATE_ANNOUNCEMENTS_TABLE = `
+CREATE TABLE IF NOT EXISTS announcements (
+  id TEXT PRIMARY KEY NOT NULL,
+  parish_id TEXT NOT NULL,
+  title TEXT NOT NULL,
+  date_label TEXT NOT NULL,
+  time_label TEXT,
+  image_url TEXT,
+  category TEXT NOT NULL,
+  description TEXT,
+  created_at TEXT NOT NULL
+);`;
+
+const CREATE_CONCORDANCE_CACHE_TABLE = `
+CREATE TABLE IF NOT EXISTS concordance_cache (
+  date TEXT PRIMARY KEY NOT NULL,
+  display_date TEXT NOT NULL,
+  day_of_week TEXT NOT NULL,
+  calendar_1962 TEXT NOT NULL,
+  modern_calendar TEXT NOT NULL,
+  cached_at TEXT NOT NULL
+);`;
+
 interface MergedTextPart {
   celebration_key: string;
   part_type: string;
@@ -226,6 +306,13 @@ export class DataManager {
       await this.storageService.executeQuery(CREATE_PARISH_EVENTS_TABLE);
       await this.storageService.executeQuery(CREATE_NEWSLETTERS_TABLE);
       await this.storageService.executeQuery(CREATE_USER_SETTINGS_TABLE);
+      // New tables for 6 UI screens
+      await this.storageService.executeQuery(CREATE_TEXT_ANNOTATIONS_TABLE);
+      await this.storageService.executeQuery(CREATE_MASS_BOOKMARKS_TABLE);
+      await this.storageService.executeQuery(CREATE_COMMUNITY_POSTS_TABLE);
+      await this.storageService.executeQuery(CREATE_POST_COMMENTS_TABLE);
+      await this.storageService.executeQuery(CREATE_ANNOUNCEMENTS_TABLE);
+      await this.storageService.executeQuery(CREATE_CONCORDANCE_CACHE_TABLE);
     });
 
     console.log('DataManager: Ready with self-contained liturgical database.');
@@ -778,7 +865,7 @@ export class DataManager {
       'SELECT * FROM journal_entries WHERE date = ? ORDER BY created DESC',
       [date]
     );
-    
+
     return results.map((row: any) => ({
       id: row.id,
       date: row.date,
@@ -789,5 +876,295 @@ export class DataManager {
       created: row.created,
       modified: row.modified
     }));
+  }
+
+  // ============================================
+  // New CRUD Methods for 6 UI Screens
+  // ============================================
+
+  // Text Annotations (Interactive Mass Text)
+  async createAnnotation(annotation: Omit<TextAnnotation, 'id' | 'createdAt'>): Promise<TextAnnotation> {
+    const id = `annotation_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const fullAnnotation: TextAnnotation = {
+      ...annotation,
+      id,
+      createdAt: new Date().toISOString(),
+    };
+
+    await this.storageService.executeQuery(
+      `INSERT INTO text_annotations
+       (id, text_id, word, position, type, definition, grammar, annotation_type, content, media_path, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        fullAnnotation.id,
+        fullAnnotation.textId,
+        fullAnnotation.word,
+        fullAnnotation.position,
+        fullAnnotation.type,
+        fullAnnotation.definition || null,
+        fullAnnotation.grammar || null,
+        fullAnnotation.annotationType || null,
+        fullAnnotation.content || null,
+        fullAnnotation.mediaPath || null,
+        fullAnnotation.createdAt,
+      ]
+    );
+
+    return fullAnnotation;
+  }
+
+  async getAnnotationsForText(textId: string): Promise<TextAnnotation[]> {
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM text_annotations WHERE text_id = ? ORDER BY position ASC',
+      [textId]
+    );
+
+    return results.map((row: any) => ({
+      id: row.id,
+      textId: row.text_id,
+      word: row.word,
+      position: row.position,
+      type: row.type,
+      definition: row.definition,
+      grammar: row.grammar,
+      annotationType: row.annotation_type,
+      content: row.content,
+      mediaPath: row.media_path,
+      createdAt: row.created_at,
+    }));
+  }
+
+  async deleteAnnotation(id: string): Promise<void> {
+    await this.storageService.executeQuery(
+      'DELETE FROM text_annotations WHERE id = ?',
+      [id]
+    );
+  }
+
+  // Mass Bookmarks (Mass Timeline)
+  async createBookmark(bookmark: Omit<MassBookmark, 'id' | 'createdAt'>): Promise<MassBookmark> {
+    const id = `bookmark_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const fullBookmark: MassBookmark = {
+      ...bookmark,
+      id,
+      createdAt: new Date().toISOString(),
+    };
+
+    await this.storageService.executeQuery(
+      `INSERT INTO mass_bookmarks (id, date, mass_part_id, note, created_at)
+       VALUES (?, ?, ?, ?, ?)`,
+      [fullBookmark.id, fullBookmark.date, fullBookmark.massPartId, fullBookmark.note || null, fullBookmark.createdAt]
+    );
+
+    return fullBookmark;
+  }
+
+  async getBookmarksForDate(date: string): Promise<MassBookmark[]> {
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM mass_bookmarks WHERE date = ? ORDER BY created_at ASC',
+      [date]
+    );
+
+    return results.map((row: any) => ({
+      id: row.id,
+      date: row.date,
+      massPartId: row.mass_part_id,
+      note: row.note,
+      createdAt: row.created_at,
+    }));
+  }
+
+  async deleteBookmark(id: string): Promise<void> {
+    await this.storageService.executeQuery(
+      'DELETE FROM mass_bookmarks WHERE id = ?',
+      [id]
+    );
+  }
+
+  // Community Posts (Fellowship)
+  async getCommunityPosts(parishId: string, limit: number = 50): Promise<CommunityPost[]> {
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM community_posts WHERE parish_id = ? ORDER BY created_at DESC LIMIT ?',
+      [parishId, limit]
+    );
+
+    return results.map((row: any) => ({
+      id: row.id,
+      parishId: row.parish_id,
+      authorName: row.author_name,
+      authorAvatar: row.author_avatar,
+      isAdmin: !!row.is_admin,
+      content: row.content,
+      visibility: row.visibility,
+      likesCount: row.likes_count,
+      commentsCount: row.comments_count,
+      createdAt: row.created_at,
+    }));
+  }
+
+  async createCommunityPost(post: Omit<CommunityPost, 'id' | 'createdAt'>): Promise<CommunityPost> {
+    const id = `post_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const fullPost: CommunityPost = {
+      ...post,
+      id,
+      createdAt: new Date().toISOString(),
+    };
+
+    await this.storageService.executeQuery(
+      `INSERT INTO community_posts
+       (id, parish_id, author_name, author_avatar, is_admin, content, visibility, likes_count, comments_count, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        fullPost.id,
+        fullPost.parishId,
+        fullPost.authorName,
+        fullPost.authorAvatar || null,
+        fullPost.isAdmin ? 1 : 0,
+        fullPost.content,
+        fullPost.visibility,
+        fullPost.likesCount,
+        fullPost.commentsCount,
+        fullPost.createdAt,
+      ]
+    );
+
+    return fullPost;
+  }
+
+  async likePost(postId: string): Promise<void> {
+    await this.storageService.executeQuery(
+      'UPDATE community_posts SET likes_count = likes_count + 1 WHERE id = ?',
+      [postId]
+    );
+  }
+
+  async unlikePost(postId: string): Promise<void> {
+    await this.storageService.executeQuery(
+      'UPDATE community_posts SET likes_count = MAX(0, likes_count - 1) WHERE id = ?',
+      [postId]
+    );
+  }
+
+  async getPostComments(postId: string): Promise<PostComment[]> {
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM post_comments WHERE post_id = ? ORDER BY created_at ASC',
+      [postId]
+    );
+
+    return results.map((row: any) => ({
+      id: row.id,
+      postId: row.post_id,
+      authorName: row.author_name,
+      authorAvatar: row.author_avatar,
+      content: row.content,
+      createdAt: row.created_at,
+    }));
+  }
+
+  async createPostComment(comment: Omit<PostComment, 'id' | 'createdAt'>): Promise<PostComment> {
+    const id = `comment_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const fullComment: PostComment = {
+      ...comment,
+      id,
+      createdAt: new Date().toISOString(),
+    };
+
+    await this.storageService.executeQuery(
+      `INSERT INTO post_comments (id, post_id, author_name, author_avatar, content, created_at)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [fullComment.id, fullComment.postId, fullComment.authorName, fullComment.authorAvatar || null, fullComment.content, fullComment.createdAt]
+    );
+
+    // Update comment count
+    await this.storageService.executeQuery(
+      'UPDATE community_posts SET comments_count = comments_count + 1 WHERE id = ?',
+      [comment.postId]
+    );
+
+    return fullComment;
+  }
+
+  // Announcements (Fellowship)
+  async getAnnouncements(parishId: string, limit: number = 20): Promise<Announcement[]> {
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM announcements WHERE parish_id = ? ORDER BY created_at DESC LIMIT ?',
+      [parishId, limit]
+    );
+
+    return results.map((row: any) => ({
+      id: row.id,
+      title: row.title,
+      dateLabel: row.date_label,
+      timeLabel: row.time_label,
+      imageUrl: row.image_url,
+      category: row.category,
+      description: row.description,
+    }));
+  }
+
+  async createAnnouncement(announcement: Omit<Announcement, 'id'> & { parishId: string }): Promise<Announcement & { parishId: string }> {
+    const id = `announcement_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+    const fullAnnouncement = { ...announcement, id };
+    const createdAt = new Date().toISOString();
+
+    await this.storageService.executeQuery(
+      `INSERT INTO announcements
+       (id, parish_id, title, date_label, time_label, image_url, category, description, created_at)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [
+        fullAnnouncement.id,
+        fullAnnouncement.parishId,
+        fullAnnouncement.title,
+        fullAnnouncement.dateLabel,
+        fullAnnouncement.timeLabel || null,
+        fullAnnouncement.imageUrl || null,
+        fullAnnouncement.category,
+        fullAnnouncement.description || null,
+        createdAt,
+      ]
+    );
+
+    return fullAnnouncement;
+  }
+
+  // Concordance Cache (Calendar Concordance)
+  async getConcordanceForMonth(year: number, month: number): Promise<ConcordanceDay[]> {
+    const startDate = `${year}-${String(month).padStart(2, '0')}-01`;
+    const endDate = `${year}-${String(month).padStart(2, '0')}-31`;
+
+    const results = await this.storageService.executeQuery(
+      'SELECT * FROM concordance_cache WHERE date >= ? AND date <= ? ORDER BY date ASC',
+      [startDate, endDate]
+    );
+
+    return results.map((row: any) => ({
+      date: row.date,
+      displayDate: row.display_date,
+      dayOfWeek: row.day_of_week,
+      calendar1962: JSON.parse(row.calendar_1962),
+      modernCalendar: JSON.parse(row.modern_calendar),
+    }));
+  }
+
+  async cacheConcordanceDay(day: ConcordanceDay): Promise<void> {
+    await this.storageService.executeQuery(
+      `INSERT OR REPLACE INTO concordance_cache
+       (date, display_date, day_of_week, calendar_1962, modern_calendar, cached_at)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+      [
+        day.date,
+        day.displayDate,
+        day.dayOfWeek,
+        JSON.stringify(day.calendar1962),
+        JSON.stringify(day.modernCalendar),
+        new Date().toISOString(),
+      ]
+    );
+  }
+
+  async cacheConcordanceMonth(days: ConcordanceDay[]): Promise<void> {
+    for (const day of days) {
+      await this.cacheConcordanceDay(day);
+    }
   }
 }
