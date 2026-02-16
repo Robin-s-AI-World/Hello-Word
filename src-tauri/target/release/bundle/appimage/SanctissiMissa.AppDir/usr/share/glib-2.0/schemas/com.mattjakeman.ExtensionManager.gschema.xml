@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="extension-manager">
+  <schema id="com.mattjakeman.ExtensionManager" path="/com/mattjakeman/ExtensionManager/">
+    <key name="width" type="i">
+      <default>800</default>
+      <summary>Window Width</summary>
+    </key>
+    <key name="height" type="i">
+      <default>600</default>
+      <summary>Window Height</summary>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Is Maximized</summary>
+      <description>Wether app window is maximized.</description>
+    </key>
+    <key name="last-used-version" type="s">
+      <default>'0.5.0'</default>
+      <summary>Last-Used Version</summary>
+      <description>The last-used version of the app. If the saved version does not match, the "What's New" dialog is shown.</description>
+    </key>
+    <key name="sort-enabled-first" type="b">
+      <default>false</default>
+      <summary>Sort Enabled First</summary>
+      <description>Display enabled extensions first in the installed view.</description>
+    </key>
+    <key name="show-unsupported" type="b">
+      <default>false</default>
+      <summary>Show Unsupported</summary>
+      <description>Show extensions which do not support the current version of GNOME.</description>
+    </key>
+  </schema>
+</schemalist>

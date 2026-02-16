@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<schemalist>
+  <schema path="/com/adrienplazas/Metronome/" id="com.adrienplazas.Metronome" gettext-domain="gnome-metronome">
+    <key name="window-width" type="i">
+      <default>-1</default>
+      <summary>Default window width</summary>
+      <description>Default window width</description>
+    </key>
+    <key name="window-height" type="i">
+      <default>-1</default>
+      <summary>Default window height</summary>
+      <description>Default window height</description>
+    </key>
+    <key name="is-maximized" type="b">
+      <default>false</default>
+      <summary>Default window maximized behaviour</summary>
+      <description></description>
+    </key>
+    <key name="beats-per-bar" type="u">
+      <range min="1" max="9"/>
+      <default>4</default>
+      <summary>Default beats per bar</summary>
+      <description>Default beats per bar</description>
+    </key>
+    <key name="beats-per-minute" type="u">
+      <range min="20" max="260"/>
+      <default>100</default>
+      <summary>Default beats per minute</summary>
+      <description>Default beats per minute</description>
+    </key>
+  </schema>
+</schemalist>

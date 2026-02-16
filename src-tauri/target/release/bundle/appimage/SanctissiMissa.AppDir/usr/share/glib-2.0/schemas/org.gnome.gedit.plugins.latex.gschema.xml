@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <enum id='org.gnome.gedit.plugins.latex.ToolbarMode'>
+    <value value='0' nick='normal'/>
+    <value value='1' nick='combined'/>
+    <value value='2' nick='disabled'/>
+  </enum>
+  <schema path="/org/gnome/gedit/plugins/latex/" id="org.gnome.gedit.plugins.latex" gettext-domain="gedit-latex">
+    <key type="i" name="maximum-bibtex-size">
+      <default>500</default>
+      <summary>Maximum BibTeX Size</summary>
+    </key>
+    <key type="i" name="bibtex-outline-grouping">
+      <default>1</default>
+    </key>
+    <key type="b" name="outline-connect-to-editor">
+      <default>true</default>
+      <summary>Connect Outline to Editor</summary>
+    </key>
+    <key type="b" name="outline-show-labels">
+      <default>false</default>
+      <summary>Show Labels in Outline</summary>
+    </key>
+    <key type="b" name="outline-show-tables">
+      <default>true</default>
+      <summary>Show Tables in Outline</summary>
+    </key>
+    <key type="b" name="outline-show-graphics">
+      <default>true</default>
+      <summary>Show Graphics in Outline</summary>
+    </key>
+    <key type="b" name="issues-show-warnings">
+      <default>true</default>
+      <summary>Show Warnings in Issues</summary>
+    </key>
+    <key type="b" name="issues-show-tasks">
+      <default>true</default>
+      <summary>Show Tasks in Issues</summary>
+    </key>
+    <key type="b" name="hide-box-warnings">
+      <default>false</default>
+      <summary>Hide Box Warnings</summary>
+    </key>
+   <key name="toolbar-mode" enum="org.gnome.gedit.plugins.latex.ToolbarMode">
+      <default>'combined'</default>
+      <summary>Show LaTeX Toolbar below (normal), combined with the main toolbar, or disabled</summary>
+    </key>
+    <key type="s" name="expanded-symbol-groups">
+      <default>'Greek,Operators,Arrows,Special'</default>
+      <summary>Expanded Symbol Groups</summary>
+    </key>
+    <key type="s" name="latex-extensions">
+      <default>'.tex,.sty,.Rnw'</default>
+      <summary>LaTeX Extensions</summary>
+    </key>
+    <key type="s" name="graphics-extensions">
+      <default>'.eps,.pdf,.jpg,.jpeg,.gif,.png'</default>
+      <summary>Graphics File Extensions</summary>
+    </key>
+    <key type="s" name="graphics-paths">
+      <default>'.'</default>
+      <summary>Paths Relative to .tex File to Look for Graphics</summary>
+    </key>
+    <key type="s" name="extra-issue-commands">
+      <default>'fxnote'</default>
+      <summary>Extra LaTeX commands used to mark issues, such as \fxnote{foo}</summary>
+    </key>
+
+    <key type="s" name="light-foreground-color">
+      <default>'#957d47'</default>
+    </key>
+
+    <key type="s" name="recent-listing-language">
+      <default>'Python'</default>
+    </key>
+    <key type="s" name="recent-bibtex-style">
+      <default>'plain'</default>
+    </key>
+
+  </schema>
+</schemalist>

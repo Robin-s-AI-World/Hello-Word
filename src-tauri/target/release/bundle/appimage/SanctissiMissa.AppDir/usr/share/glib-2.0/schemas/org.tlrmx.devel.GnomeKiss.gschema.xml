@@ -1,0 +1,52 @@
+<schemalist gettext-domain="gnomekiss">
+  <schema id="org.tlrmx.devel.GnomeKiss" path="/org/tlrmx/devel/gnomekiss/">
+    <key name="midi" type="b">
+      <default>true</default>
+      <summary>Whether to play MIDI using an external program.</summary>
+    </key>
+    <key name="sound" type="b">
+      <default>true</default>
+      <summary>Whether to play digital audio.</summary>
+    </key>
+    <key name="midi-player" type="s">
+      <default>'playmidi'</default>
+      <summary>Name of the MIDI player executable.</summary>
+    </key>
+    <key name="error-list" type="b">
+      <default>true</default>
+      <summary>Show error list after doll loading.</summary>
+    </key>
+    <key name="trace" type="b">
+      <default>false</default>
+      <summary>Trace all actions at runtime.</summary>
+    </key>
+    <key name="warnings" type="b">
+      <default>true</default>
+      <summary>Whether to include warnings in the error list.</summary>
+    </key>
+    <key name="ignore-colon" type="b">
+      <default>false</default>
+      <summary>Ignore lone colon (show cell in all sets).</summary>
+    </key>
+    <key name="default-palette" type="b">
+      <default>false</default>
+      <summary>User PFK default palette.</summary>
+    </key>
+    <key name="fkiss-case" type="b">
+      <default>false</default>
+      <summary>Case insensitive FKiSS parser.</summary>
+    </key>
+    <key name="catch-drop" type="b">
+      <default>false</default>
+      <summary>No {catch,drop} triggered if object is fixed.</summary>
+    </key>
+    <key name="speed-factor" type="i">
+      <default>1</default>
+      <summary>Slow down factor.</summary>
+    </key>
+    <key name="min-timer" type="i">
+      <default>1</default>
+      <summary>Minimum timer interval, in milliseconds.</summary>
+    </key>
+  </schema>
+</schemalist>
