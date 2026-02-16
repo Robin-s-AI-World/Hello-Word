@@ -1,0 +1,1 @@
+{"default":{"identifier":"default","description":"Default capabilities for SanctissiMissa","local":true,"windows":["main"],"permissions":["core:default","shell:allow-open","fs:allow-read-text-file","fs:allow-write-text-file","fs:allow-read-dir","fs:allow-create","fs:allow-exists",{"identifier":"fs:scope","allow":["$APPDATA/**","$APPLOCALDATA/**","$APPCACHE/**"]}]}}

@@ -1,0 +1,11 @@
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/aarch64-linux-android/release/deps/tower_layer-4c5bb84d75becbab.d: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/identity.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/layer_fn.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/stack.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/tuple.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/aarch64-linux-android/release/deps/libtower_layer-4c5bb84d75becbab.rlib: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/identity.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/layer_fn.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/stack.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/tuple.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/aarch64-linux-android/release/deps/libtower_layer-4c5bb84d75becbab.rmeta: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/identity.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/layer_fn.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/stack.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/tuple.rs
+
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/lib.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/identity.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/layer_fn.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/stack.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/tower-layer-0.3.3/src/tuple.rs:

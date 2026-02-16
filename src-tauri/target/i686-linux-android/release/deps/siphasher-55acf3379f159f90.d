@@ -1,0 +1,11 @@
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/siphasher-55acf3379f159f90.d: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/common.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/../README.md
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/libsiphasher-55acf3379f159f90.rlib: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/common.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/../README.md
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/libsiphasher-55acf3379f159f90.rmeta: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/common.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/../README.md
+
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/lib.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/common.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/sip128.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/siphasher-1.0.2/src/../README.md:

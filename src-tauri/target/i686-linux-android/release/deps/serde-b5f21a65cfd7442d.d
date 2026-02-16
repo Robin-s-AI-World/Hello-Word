@@ -1,0 +1,14 @@
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/serde-b5f21a65cfd7442d.d: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/build/serde-31639a2f0619a842/out/private.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/libserde-b5f21a65cfd7442d.rlib: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/build/serde-31639a2f0619a842/out/private.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/deps/libserde-b5f21a65cfd7442d.rmeta: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/build/serde-31639a2f0619a842/out/private.rs
+
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/build/serde-31639a2f0619a842/out/private.rs:
+
+# env-dep:OUT_DIR=/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/i686-linux-android/release/build/serde-31639a2f0619a842/out

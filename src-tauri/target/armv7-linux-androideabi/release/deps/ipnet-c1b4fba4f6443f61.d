@@ -1,0 +1,11 @@
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/armv7-linux-androideabi/release/deps/ipnet-c1b4fba4f6443f61.d: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipext.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipnet.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/parser.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/mask.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/armv7-linux-androideabi/release/deps/libipnet-c1b4fba4f6443f61.rlib: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipext.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipnet.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/parser.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/mask.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/armv7-linux-androideabi/release/deps/libipnet-c1b4fba4f6443f61.rmeta: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipext.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipnet.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/parser.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/mask.rs
+
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/lib.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipext.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/ipnet.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/parser.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/ipnet-2.11.0/src/mask.rs:
