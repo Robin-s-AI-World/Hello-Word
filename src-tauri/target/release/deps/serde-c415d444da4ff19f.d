@@ -1,0 +1,14 @@
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/deps/serde-c415d444da4ff19f.d: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/build/serde-3c88ae9891705d59/out/private.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/deps/libserde-c415d444da4ff19f.rlib: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/build/serde-3c88ae9891705d59/out/private.rs
+
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/deps/libserde-c415d444da4ff19f.rmeta: /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs /home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs /home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/build/serde-3c88ae9891705d59/out/private.rs
+
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/lib.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/integer128.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/mod.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/de.rs:
+/home/robin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/serde-1.0.228/src/private/ser.rs:
+/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/build/serde-3c88ae9891705d59/out/private.rs:
+
+# env-dep:OUT_DIR=/home/robin/githubRobinsAIWorld/Hello-Word/src-tauri/target/release/build/serde-3c88ae9891705d59/out

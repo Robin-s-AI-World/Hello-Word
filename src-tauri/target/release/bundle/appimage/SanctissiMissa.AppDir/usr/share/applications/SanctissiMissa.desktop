@@ -1,0 +1,9 @@
+[Desktop Entry]
+Categories=Education;
+Comment=Traditional Catholic Liturgical Application
+Exec=sanctissimissa
+StartupWMClass=sanctissimissa
+Icon=sanctissimissa
+Name=SanctissiMissa
+Terminal=false
+Type=Application

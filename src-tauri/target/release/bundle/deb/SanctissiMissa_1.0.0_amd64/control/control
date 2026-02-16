@@ -1,0 +1,10 @@
+Package: sanctissi-missa
+Version: 1.0.0
+Architecture: amd64
+Installed-Size: 14297
+Maintainer: Robin L. M. Cheung, MBA
+Section: Education
+Priority: optional
+Depends: libwebkit2gtk-4.1-0, libgtk-3-0
+Description: Traditional Catholic Liturgical Application
+ SanctissiMissa provides traditional Latin Mass texts, Divine Office, liturgical calendar, personal journaling, and parish information for the Extraordinary Form of the Roman Rite.
